@@ -14,15 +14,15 @@
 * Response:
 	* Example Response:
 		```
-		{
-			"owner": {
-				"username": "testname",
-				"full_name": "John Doe",
-				"email": "test@email.com",
-				"total_points": 150
-			},
-			"post_id": 1,
-			"guess": "something",
-			"points": 80
-		}
+{
+	"owner": {
+		"username": "testname",
+		"full_name": "John Doe",
+		"email": "test@email.com",
+		"total_points": 150
+	},
+	"post_id": 1,
+	"guess": "something",
+	"points": 80
+}
 		```
