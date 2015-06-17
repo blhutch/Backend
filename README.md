@@ -13,7 +13,7 @@
 
 * Response:
 	* Example Response:
-		```
+```
 {
 	"owner": {
 		"username": "testname",
@@ -25,4 +25,4 @@
 	"guess": "something",
 	"points": 80
 }
-		```
+```
