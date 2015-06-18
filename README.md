@@ -16,6 +16,7 @@ Path:
 *None*
 
 **Status Codes**
+
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
@@ -59,6 +60,7 @@ Path:
 *None*
 
 **Status Codes**
+
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
@@ -99,11 +101,13 @@ Path:
 `POST 'posts/:post_id/guesses'`
 
 **Parameters**
+
 Name | Type | Description
 --- | --- | ---
 guess | string | **Required.** User provided guess to the specified post.
 
 **Status Codes**
+
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
@@ -133,6 +137,7 @@ Path:
 *None*
 
 **Status Codes**
+
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
@@ -163,6 +168,7 @@ Path:
 *None*
 
 **Status Codes**
+
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
