@@ -1,20 +1,13 @@
 class GuessesController < ApplicationController
 
 	def index
-		post = Post.find(params[:post_id])
-		@post = post.guess.all
+		@post = Post.find(params[:post_id])
+		@guesses = @post.guesses.all
 
-		if @post 
-			@post.guesses.each do |guess|
-				format json: {
-					owner: guess.user.as_json(only: [:username, :full_name, :email, :total_points]),
-					post_id: @post.id,
-					guess: guess.guess,
-					points: guess.points
-				}
-			end
+		if @guesses 
+			render :index
 		else
-			render json: { errors: post.errors.full_messages }, status: :unprocessable_entity
+			render json: { errors: post.errors.full_messages }, status: :bad_request
 		end	
 	end
 
@@ -23,16 +16,9 @@ class GuessesController < ApplicationController
 		@user = User.find_by(username: params[:username])
 		@guesses = @user.guesses.where(post_id: @post.id)
 		if @guesses
-			@guesses.each do |guess|
-				format json: {
-					owner: @user.as_json(only: [:username, :full_name, :email, :total_points]),
-					post_id: @post.id,
-					guess: guess.guess,
-					points: guess.points
-				}
-			end
+			render :user
 		else
-			render json: { errors: @guesses.errors.full_messages }, status: :unprocessable_entity
+			render json: { errors: @guesses.errors.full_messages }, status: :bad_request
 		end
 	end
 
@@ -47,20 +33,33 @@ class GuessesController < ApplicationController
 				points: @guess.points
 			}
 		else
-			render json: { errors: @guess.errors.full_messages }, status: :unprocessable_entity
+			render json: { errors: @guess.errors.full_messages }, status: :bad_request
 		end
 	end
 
 	def create
+		@post = Post.find(params[:post_id])
 		@user_guesses = Post.find(params[:post_id]).guesses.where(user_id: current_user.id).count
-		points = @user_guesses * 10 - 100
-		if points < 0
-			points = 0
+		points = 0
+		if params[:guess] =~ /#{@post.answer}/ 
+			points = 100 - @user_guesses * 10
+			if points < 0
+				points = 0
+			end
+			points
 		end
 		@guess = Guess.new(user_id: current_user.id, post_id: params[:post_id], 
-											 guess: params[:guess], points: points)
+											 guess: params[:guess].downcase, points: points)
 		if @guess.save
-			render json: { message: "The guess was created and stored successfully." }, status: :created
+			# if @guess.answer == @post.answer
+			# 	@post.solution = @guess.id
+			# end
+			render json: {  
+				owner: @user.as_json(only: [:username, :full_name, :email, :total_points]),
+				post_id: @guess.post_id,
+				guess: @guess.guess,
+				points: @guess.points
+				}, status: :created
 		else
 			render json: { errors: @guess.errors.full_messages }, status: :unprocessable_entity
 		end
@@ -71,7 +70,7 @@ class GuessesController < ApplicationController
 		if @guess.destroy
 			render json: { message: "The guess was successfully deleted." }, status: :no_content
 		else
-			render json: { errors: @guess.errors.full_messages }, status: :unprocessable_entity
+			render json: { errors: @guess.errors.full_messages }, status: :bad_request
 		end
 	end
 end
