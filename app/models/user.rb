@@ -5,8 +5,12 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, presence: true
   validates :email, format: { with: EMAIL_REGEX,
                               message: "is not a valid email." }
+  validates :username, uniqueness: true
 
   before_validation :ensure_access_token
+
+      has_many :posts
+      has_many :guesses
 
   def ensure_access_token
     if self.access_token.blank?
@@ -21,6 +25,7 @@ class User < ActiveRecord::Base
     end
     token
   end
+
 end
 
 
