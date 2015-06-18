@@ -1,61 +1,182 @@
-# Backend API for Dcryptr
+# API Documentation for Dcryptr
 
-## Example API Responses
+## **User Model**
 
-### User Model
+## **Post Model**
 
-* **Path:** ``` 
-        post 'users/signup',  to: 'users#user_signup'
-        post 'users/signin',  to: 'users#user_signin'
-        ```
+## **Guess Model**
 
-* **Params:** ``` 
-	           id
-	           username
-	 		   full name
-	 		   email
-	 		   password
-	 		   total points
-	 		   access_token
-	 		   ```
+#### Show All Guesses of a Particular Post
+Lists all the guesses in a specified post from all users.
 
-* **Response:**
+Path: 
+	`GET 'posts/:post_id/guesses'`
 
- 	- Example Response
+**Parameters** 
+*None*
 
-    ```
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | Request was received and delivered successfully.
+400 | Error | Bad Request. Specified parameters do not match.
+
+**Example Response**
+```
+[
 	{
-  		"user": {
-    	            "id": 3,
-    	            "username": "TCUfrog",
-    	            "full_name": "Ray Barnard",
-    	           "email": "frog@gmail.com",
-    	           "total_points": 0,
-    	           "access_token": "a7f8882b9c24cd049c243e1f8510cb71"
-  		}
+		"owner": {
+			"username": "testusername",
+			"full_name": "John Doe",
+			"email": "test@email.com",
+			"total_points": 150,
+		},
+		"post_id": 1,
+		"guess": "foobar",
+		"points": 0
+	},
+	{
+		"owner": {
+			"username": "zebracakes",
+			"full_name": "Lil Debbie",
+			"email": "lil@debbie.com",
+			"total_points": 300,
+		},
+		"post_id": 1,
+		"guess": "kitty",
+		"points": 80
 	}
-	```
+]
+```
 
+#### Show guesses for a user in a particular post
+Lists all the guesses for a particular user in a specified post.
 
-### Post Model
+Path:
+`GET 'posts/:post_id/guesses/user/:username'`
 
-### Guess Model
+**Parameters**
+*None*
 
-* Path: `GET '/posts/:id/guesses'`
-* Params: None
+**Status Codes**
 
-* Response:
-	* Example Response:
+Code | Type | Description
+---|---|---
+200 | Success | Request was received and delivered successfully.
+400 | Error | Bad Request. Specified parameters do not match.
+
+**Example Response**
+```
+[
+	{
+		"owner": {
+			"username": "testusername",
+			"full_name": "John Doe",
+			"email": "test@email.com",
+			"total_points": 150,
+		},
+		"post_id": 1,
+		"guess": "foobar",
+		"points": 0
+	},
+	{
+		"owner": {
+			"username": "testusername",
+			"full_name": "John Doe",
+			"email": "test@email.com",
+			"total_points": 150,
+		},
+		"post_id": 1,
+		"guess": "kitty",
+		"points": 80
+	}
+]
+```
+
+#### Create a Guess
+Creates a guess on a specified post from the logged in user.
+
+Path: 
+`POST 'posts/:post_id/guesses'`
+
+**Parameters**
+
+Name | Type | Description
+--- | --- | ---
+guess | string | **Required.** User provided guess to the specified post.
+
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | Request was received and delivered successfully.
+422 | Error | Unprocessable Entry. Specified parameters are invalid.
+
+**Example Input**
 ```
 {
-	"owner": {
-		"username": "testname",
-		"full_name": "John Doe",
-		"email": "test@email.com",
-		"total_points": 150
-	},
-	"post_id": 1,
-	"guess": "something",
-	"points": 80
+	"guess": "foobar"
+}
+```
+
+**Example Response**
+```
+{
+	"message": "The guess was created and stored successfully."
+}
+```
+
+#### Show a Guess
+Returns a specified guess.
+
+Path: 
+`GET 'guess/:guess_id'`
+
+**Parameters**
+*None*
+
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | Request was received and delivered successfully.
+400 | Error | Bad Request. Specified parameters do not match.
+
+**Example Response**
+```
+{
+  "owner": {
+    "username": "zebracakes",
+    "full_name": "Little Debbie",
+    "email": "little@debbie.com",
+    "total_points": 300,
+  },
+  "post_id": 1,
+  "guess": "kitty",
+  "points": 80
+}
+```
+
+#### Delete a Guess
+Deletes a specified guess.
+
+Path: 
+`DELETE 'guess/:guess_id'`
+
+**Parameters**
+*None*
+
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | Request was received and delivered successfully.
+400 | Error | Bad Request. Specified parameters do not match.
+
+**Example Response**
+```
+{
+	"message": "The guess was successfully deleted."
 }
 ```
