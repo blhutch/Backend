@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Specify Ruby version for Heroku deployment
 ruby '2.1.5'
 
+# Allows pagination of API requests
+gem 'kaminari'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
@@ -49,4 +51,6 @@ end
 group :production do 
 	# Added for Heroku deployment
 	gem 'rails_12factor'
+	# Allows user authentication with token
+	gem 'rack-cors', require: 'rack/cors'
 end
