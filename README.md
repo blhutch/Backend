@@ -29,12 +29,12 @@
   		}
 	}
 
-+**Status Codes**
-+
-+Code | Type | Description
-+---|---|---
-+200 | Success | Request was received and delivered successfully.
-+400 | Error | Bad Request. Specified parameters do not match.
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | Request was received and delivered successfully.
+400 | Error | Bad Request. Specified parameters do not match.
 	```
 ***SIGNIN***
 * **Path:** ```
@@ -53,12 +53,12 @@
     "access_token": "20f8f76d0e562b28eef896cad0680640"
   }
 }
-+**Status Codes**
-+
-+Code | Type | Description
-+---|---|---
-+200 | Success | Request was received and delivered successfully.
-+400 | Error | Bad Request. Specified parameters do not match.
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | Request was received and delivered successfully.
+400 | Error | Bad Request. Specified parameters do not match.
 	```
 ***DELETE***
 * **Path**```
@@ -71,12 +71,12 @@
 * **Response**```
 		-Example Response
 		No data
-+**Status Codes**
-+
-+Code | Type | Description
-+---|---|---
-+200 | Success | Request was received and delivered successfully.
-+400 | Error | Bad Request. Specified parameters do not match.
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | Request was received and delivered successfully.
+400 | Error | Bad Request. Specified parameters do not match.
 	```
 
 ***INDEX***
@@ -91,12 +91,12 @@
 		  -Example Response
 		  [{"id":1,"username":"redbull","full_name":"Red      Bull","email":"test@gmail.com","total_points":0},{"id":2,"username":"booyah","full_name":"Eddie Mercury","email":"1232d@gmail.com","total_points":0}]
 		  
-+**Status Codes**
-+
-+Code | Type | Description
-+---|---|---
-+200 | Success | Request was received and delivered successfully.
-+400 | Error | Bad Request. Specified parameters do not match.
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | Request was received and delivered successfully.
+400 | Error | Bad Request. Specified parameters do not match.
 	```
 
 ## **Post Model**
