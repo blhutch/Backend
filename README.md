@@ -1,8 +1,8 @@
 # API Documentation for Dcryptr
 
-### **User Model**
+## **User Model**
 
-### **Post Model**
+## **Post Model**
 
 #### Posts Index
 List of all posts in the database.
@@ -240,7 +240,7 @@ Code | Type | Description
 
 
 
-### **Guess Model**
+## **Guess Model**
 
 #### Show All Guesses of a Particular Post
 Lists all the guesses in a specified post from all users.
@@ -252,6 +252,7 @@ Path:
 *None*
 
 **Status Codes**
+
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
@@ -297,6 +298,7 @@ Path:
 *None*
 
 **Status Codes**
+
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
@@ -339,11 +341,13 @@ Path:
 `POST 'posts/:post_id/guesses'`
 
 **Parameters**
+
 Name | Type | Description
 --- | --- | ---
 guess | string | **Required.** User provided guess to the specified post.
 
 **Status Codes**
+
 Code | Type | Description
 ---|---|---
 201 | Success | Request was received and a guess was successfully created.
@@ -382,6 +386,7 @@ Path:
 *None*
 
 **Status Codes**
+
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
@@ -413,6 +418,7 @@ Path:
 *None*
 
 **Status Codes**
+
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
