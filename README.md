@@ -31,6 +31,7 @@ access_token (generated at signup)
     	           "access_token": "a7f8882b9c24cd049c243e1f8510cb71"
   		}
 	}
+```
 
 **Status Codes**
 
@@ -38,7 +39,7 @@ Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
 400 | Error | Bad Request. Specified parameters do not match.
-```
+
 ***SIGNIN***
 * **Path:** 
 ```
