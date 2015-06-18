@@ -1,10 +1,10 @@
 # API Documentation for Dcryptr
 
-### **User Model**
+## **User Model**
 
-### **Post Model**
+## **Post Model**
 
-### **Guess Model**
+## **Guess Model**
 
 #### Show All Guesses of a Particular Post
 Lists all the guesses in a specified post from all users.
