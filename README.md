@@ -1,10 +1,246 @@
 # API Documentation for Dcryptr
 
-## **User Model**
+### **User Model**
 
-## **Post Model**
+### **Post Model**
 
-## **Guess Model**
+#### Posts Index
+List of all posts in the database.
+
+Path: 
+`GET '/posts'`
+
+**Parameters**
+*None*
+
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | All posts were successfully returned.
+204 | Success | The server successfully processed the request, but not content was returned due to an empty database. 
+
+
+**Example Response**
+```
+[
+  {
+  	"id": 1,
+	"owner": {
+	  "username": "testusername",
+	    "full_name": "John Doe",
+		"email": "test@email.com",
+		"total_points": 150,
+	},
+	"img_url": "http://i.imgur.com/zCpxKJQ.png",
+	"answer": "potato"
+  }
+  {
+  	"id": 2,
+	"owner": {
+	  "username": "zebracakes",
+	  "full_name": "Lil Debbie",
+	  "email": "lil@debbie.com",
+	  "total_points": 300,
+	},
+	"img_url": "http://i.imgur.com/uyQQK2A.png",
+	"answer": "snow"
+  }
+]
+    
+```
+
+#### Incomplete Posts for a User
+Lists the posts that a specific has not completed.
+
+Path: 
+`GET 'posts/user/:user_id/incomplete'`
+
+**Parameters**
+*None*
+
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | Requested processed and returned posts not done by a user.
+400 | Error | Bad Request. Specified parameters do not match.
+
+
+**Example Response**
+```
+[
+  {
+  	"id": 1,
+	"owner": {
+	  "username": "testusername",
+	    "full_name": "John Doe",
+		"email": "test@email.com",
+		"total_points": 150,
+	},
+	"img_url": "http://i.imgur.com/zCpxKJQ.png",
+	"answer": "potato"
+  }
+  {
+  	"id": 2,
+	"owner": {
+	  "username": "zebracakes",
+	  "full_name": "Lil Debbie",
+	  "email": "lil@debbie.com",
+	  "total_points": 300,
+	},
+	"img_url": "http://i.imgur.com/uyQQK2A.png",
+	"answer": "snow"
+  }
+]
+```
+
+#### Show a Post
+Shows the post data for a specified post.
+
+Path: 
+`GET '/post/:post_id'`
+
+**Parameters**
+*None*
+
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | Server successfully requested returned post data.
+400 | Error | Bad Request. Specified parameters do not match.
+
+
+**Example Response**
+```
+{
+  "id": 1,
+  "owner": {
+	"username": "zebracakes",
+	"full_name": "Lil Debbie",
+	"email": "lil@debbie.com",
+	"total_points": 300,
+  },
+	"img_url": "http://i.imgur.com/zCpxKJQ.png",
+	"answer": "potato"
+}
+```
+
+#### Show a User's Posts
+Shows all posts created by a specified user.
+
+Path: 
+`GET '/posts/user/:user_id'`
+
+**Parameters**
+*None*
+
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | Server successfully requested returned post data for the specified user.
+400 | Error | Bad Request. Specified parameters do not match.
+
+**Example Response**
+```
+[
+  {
+  	"id": 1,
+	"owner": {
+	  "username": "zebracakes",
+	  "full_name": "Lil Debbie",
+	  "email": "lil@debbie.com",
+	  "total_points": 300,
+	},
+	"img_url": "http://i.imgur.com/zCpxKJQ.png",
+	"answer": "potato"
+  }
+  {
+  	"id": 2,
+	"owner": {
+	  "username": "zebracakes",
+	  "full_name": "Lil Debbie",
+	  "email": "lil@debbie.com",
+	  "total_points": 300,
+	},
+	"img_url": "http://i.imgur.com/uyQQK2A.png",
+	"answer": "snow"
+  }
+]
+```
+
+#### Create a Post
+Creates a post for the current user.
+
+Path: 
+`POST '/posts'`
+
+**Parameters**
+
+Name | Type | Description
+--- | --- | ---
+img_url | string | **Required.** Link to the image.
+answer | string | **Required.** User's answer input.
+
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+201 | Success | Server has processed the request and has successfully created the post.
+422 | Error | Unprocessable Entry. Specified parameters are invalid.
+ 
+**Example Input**
+```
+{
+  "img_url": "http://i.imgur.com/uyQQK2A.png",
+  "answer": "snow"
+}
+
+```
+
+**Example Response**
+```
+{
+  "id": 1,
+  "owner": {
+	"username": "zebracakes",
+	"full_name": "Lil Debbie",
+	"email": "lil@debbie.com",
+	"total_points": 300,
+  },
+  "img_url": "http://i.imgur.com/uyQQK2A.png",
+  "answer": "snow"
+}
+```
+#### Delete a Post
+Deletes the specified post.
+
+Path: 
+`DELETE '/post/:post_id'`
+
+**Parameters**
+*None*
+
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+204 | Success | No Content. Server successfully processed the request and has removed the post.
+400 | Error | Bad Request. Specified parameters do not match.
+
+
+**Example Response**
+```
+{
+  message: "The post was successfully deleted." 
+}
+```
+
+
+
+### **Guess Model**
 
 #### Show All Guesses of a Particular Post
 Lists all the guesses in a specified post from all users.
@@ -16,7 +252,6 @@ Path:
 *None*
 
 **Status Codes**
-
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
@@ -25,28 +260,30 @@ Code | Type | Description
 **Example Response**
 ```
 [
-	{
-		"owner": {
-			"username": "testusername",
-			"full_name": "John Doe",
-			"email": "test@email.com",
-			"total_points": 150,
-		},
-		"post_id": 1,
-		"guess": "foobar",
-		"points": 0
+  {
+	"id": 1,
+	"owner": {
+	  "username": "testusername",
+	  "full_name": "John Doe",
+	  "email": "test@email.com",
+	  "total_points": 150,
 	},
-	{
-		"owner": {
-			"username": "zebracakes",
-			"full_name": "Lil Debbie",
-			"email": "lil@debbie.com",
-			"total_points": 300,
-		},
-		"post_id": 1,
-		"guess": "kitty",
-		"points": 80
-	}
+	"post_id": 1,
+	"guess": "foobar",
+	"points": 0
+  },
+  {
+	"id": 2,
+	"owner": {
+	  "username": "zebracakes",
+	  "full_name": "Lil Debbie",
+	  "email": "lil@debbie.com",
+	  "total_points": 300,
+	},
+	"post_id": 1,
+	"guess": "kitty",
+	"points": 80
+  }
 ]
 ```
 
@@ -60,7 +297,6 @@ Path:
 *None*
 
 **Status Codes**
-
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
@@ -69,28 +305,30 @@ Code | Type | Description
 **Example Response**
 ```
 [
-	{
-		"owner": {
-			"username": "testusername",
-			"full_name": "John Doe",
-			"email": "test@email.com",
-			"total_points": 150,
-		},
-		"post_id": 1,
-		"guess": "foobar",
-		"points": 0
+  {
+  	"id": 1,
+	"owner": {
+	  "username": "testusername",
+	  "full_name": "John Doe",
+	  "email": "test@email.com",
+	  "total_points": 150,
 	},
-	{
-		"owner": {
-			"username": "testusername",
-			"full_name": "John Doe",
-			"email": "test@email.com",
-			"total_points": 150,
-		},
-		"post_id": 1,
-		"guess": "kitty",
-		"points": 80
-	}
+	"post_id": 1,
+	"guess": "foobar",
+	"points": 0
+  },
+  {
+  	"id": 2,
+	"owner": {
+	  "username": "testusername",
+	  "full_name": "John Doe",
+	  "email": "test@email.com",
+	  "total_points": 150,
+	},
+	"post_id": 1,
+	"guess": "kitty",
+    "points": 80
+  }
 ]
 ```
 
@@ -101,29 +339,36 @@ Path:
 `POST 'posts/:post_id/guesses'`
 
 **Parameters**
-
 Name | Type | Description
 --- | --- | ---
 guess | string | **Required.** User provided guess to the specified post.
 
 **Status Codes**
-
 Code | Type | Description
 ---|---|---
-200 | Success | Request was received and delivered successfully.
+201 | Success | Request was received and a guess was successfully created.
 422 | Error | Unprocessable Entry. Specified parameters are invalid.
 
 **Example Input**
 ```
 {
-	"guess": "foobar"
+  "guess": "foobar"
 }
 ```
 
 **Example Response**
 ```
 {
-	"message": "The guess was created and stored successfully."
+  "id": 1,
+  "owner": {
+	"username": "testusername",
+	"full_name": "John Doe",
+	"email": "test@email.com",
+	"total_points": 150,
+  },
+  "post_id": 1,
+  "guess": "kitty",
+  "points": 80
 }
 ```
 
@@ -137,7 +382,6 @@ Path:
 *None*
 
 **Status Codes**
-
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
@@ -146,6 +390,7 @@ Code | Type | Description
 **Example Response**
 ```
 {
+  "id": 1,
   "owner": {
     "username": "zebracakes",
     "full_name": "Little Debbie",
@@ -168,7 +413,6 @@ Path:
 *None*
 
 **Status Codes**
-
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
@@ -177,6 +421,6 @@ Code | Type | Description
 **Example Response**
 ```
 {
-	"message": "The guess was successfully deleted."
+  "message": "The guess was successfully deleted."
 }
 ```
