@@ -1,18 +1,11 @@
 class GuessesController < ApplicationController
 
 	def index
-		post = Post.find(params[:post_id])
-		@post = post.guess.all
+		@post = Post.find(params[:post_id])
+		@guesses = @post.guesses.all
 
-		if @post 
-			@post.guesses.each do |guess|
-				format json: {
-					owner: guess.user.as_json(only: [:username, :full_name, :email, :total_points]),
-					post_id: @post.id,
-					guess: guess.guess,
-					points: guess.points
-				}
-			end
+		if @guesses 
+			render :index
 		else
 			render json: { errors: post.errors.full_messages }, status: :bad_request
 		end	
@@ -23,14 +16,7 @@ class GuessesController < ApplicationController
 		@user = User.find_by(username: params[:username])
 		@guesses = @user.guesses.where(post_id: @post.id)
 		if @guesses
-			@guesses.each do |guess|
-				format json: {
-					owner: @user.as_json(only: [:username, :full_name, :email, :total_points]),
-					post_id: @post.id,
-					guess: guess.guess,
-					points: guess.points
-				}
-			end
+			render :user
 		else
 			render json: { errors: @guesses.errors.full_messages }, status: :bad_request
 		end
@@ -65,9 +51,9 @@ class GuessesController < ApplicationController
 		@guess = Guess.new(user_id: current_user.id, post_id: params[:post_id], 
 											 guess: params[:guess].downcase, points: points)
 		if @guess.save
-			if @guess.answer == @post.answer
-				@post.solution = @guess.id
-			end
+			# if @guess.answer == @post.answer
+			# 	@post.solution = @guess.id
+			# end
 			render json: {  
 				owner: @user.as_json(only: [:username, :full_name, :email, :total_points]),
 				post_id: @guess.post_id,
