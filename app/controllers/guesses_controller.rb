@@ -65,6 +65,9 @@ class GuessesController < ApplicationController
 		@guess = Guess.new(user_id: current_user.id, post_id: params[:post_id], 
 											 guess: params[:guess].downcase, points: points)
 		if @guess.save
+			if @guess.answer == @post.answer
+				@post.solution = @guess.id
+			end
 			render json: { message: "The guess was created and stored successfully." }, status: :created
 		else
 			render json: { errors: @guess.errors.full_messages }, status: :unprocessable_entity
