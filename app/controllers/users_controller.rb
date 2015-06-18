@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_with_token!, only: [:index, :delete, :update]
+
   def user_signup
     passhash = Digest::SHA1.hexdigest(params[:password])
     @user = User.new(username: params[:username], full_name: params[:full_name],
@@ -14,11 +16,11 @@ class UsersController < ApplicationController
     end
   end
 
-.
+
   def user_signin
-    @user = User.find_by(params[:email])
+    @user = User.find_by(username: params[:username])
     passhash = Digest::SHA1.hexdigest(params[:password])
-    if # the password is correct
+    if passhash == @user.password
       render json: {user: @user.as_json(only: [:id, :email, :access_token]) },
         status: :created
     else
@@ -27,17 +29,32 @@ class UsersController < ApplicationController
     end
   end
 
-  # def user_lookup
+
+  def delete
+    @user = User.find_by(username: params[:username])
+    if current_user.access_token == @user.access_token
+      @user.destroy
+    end
+    render json: { message: "Test message" }, status: :no_content
+  end 
+
+  def index
+    @users = User.all
+    # json.array! @user{ :username, :full_name, :email, :total_points
+    #   }
+  end
+
+  #def update
+    # if we decide this is needed to update a player profile, I will put it in.
+  #end
+
+  #def user_lookup
   #   @user = User.find_by(params[:email])
   #   render json: {user: @user.as_json(only: [:id, :email, :access_token]) },
   #   status: :created
   # end
 
-  #def delete
-    #if we decide this is needed I will put it in.
-  #end
+  
 
-  #def update
-    #if we decide this is needed to update a player profile, I will put it in.
-  #end
+  
 end
