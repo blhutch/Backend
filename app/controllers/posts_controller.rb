@@ -47,7 +47,12 @@ class PostsController < ApplicationController
 		@post = Post.new(user_id: current_user.id, img_url: params[:img_url], 
 										 answer: params[:answer])
 		if @post.save
-			render json: { message: "The post was created and stored successfully." }, status: :created
+			render json: { 
+				id: @post.id
+				owner: @post.user.as_json(only: [:username, :full_name, :email, :total_points]),
+				img_url: @post.img_url,
+				answer: @post.answer
+			}, status: :created
 		else
 			render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
 		end

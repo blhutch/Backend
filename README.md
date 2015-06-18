@@ -128,7 +128,7 @@ Code | Type | Description
 ```
 
 #### Show a User's Posts
-Shows all post data of a specified user.
+Shows all posts created by a specified user.
 
 Path: 
 `GET '/posts/user/:user_id'`
@@ -193,7 +193,10 @@ Code | Type | Description
  
 **Example Input**
 ```
-
+{
+  "img_url": "http://i.imgur.com/uyQQK2A.png",
+  "answer": "snow"
+}
 
 ```
 
@@ -207,8 +210,8 @@ Code | Type | Description
 	"email": "lil@debbie.com",
 	"total_points": 300,
   },
-	"img_url": "http://i.imgur.com/zCpxKJQ.png",
-	"answer": "potato"
+  "img_url": "http://i.imgur.com/uyQQK2A.png",
+  "answer": "snow"
 }
 ```
 #### Delete a Post
@@ -249,7 +252,6 @@ Path:
 *None*
 
 **Status Codes**
-
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
@@ -295,7 +297,6 @@ Path:
 *None*
 
 **Status Codes**
-
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
@@ -343,7 +344,6 @@ Name | Type | Description
 guess | string | **Required.** User provided guess to the specified post.
 
 **Status Codes**
-
 Code | Type | Description
 ---|---|---
 201 | Success | Request was received and a guess was successfully created.
@@ -382,7 +382,6 @@ Path:
 *None*
 
 **Status Codes**
-
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
@@ -414,7 +413,6 @@ Path:
 *None*
 
 **Status Codes**
-
 Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
