@@ -4,7 +4,6 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :user_id
       t.string :img_url
       t.string :answer
-      t.integer :solution
 
       t.timestamps null: false
     end
