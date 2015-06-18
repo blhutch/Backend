@@ -18,8 +18,9 @@ password
 total points
 access_token (generated at signup)
 ```
+* **Response**
 
- 	- Example Response
+- Example Response
 ```
 	{
   		"user": {
@@ -52,7 +53,7 @@ password
 ```
 * **Response**
 
--Example Response
+- Example Response
 ```
 		      {
   "user": {
