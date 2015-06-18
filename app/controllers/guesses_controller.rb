@@ -58,7 +58,7 @@ class GuessesController < ApplicationController
 			points = 0
 		end
 		@guess = Guess.new(user_id: current_user.id, post_id: params[:post_id], 
-											 guess: params[:guess], points: points)
+											 guess: params[:guess].downcase, points: points)
 		if @guess.save
 			render json: { message: "The guess was created and stored successfully." }, status: :created
 		else
