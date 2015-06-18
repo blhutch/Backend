@@ -14,12 +14,24 @@ class UsersController < ApplicationController
     end
   end
 
-
-  def user_lookup
+.
+  def user_signin
     @user = User.find_by(params[:email])
-    render json: {user: @user.as_json(only: [:id, :email, :access_token]) },
-    status: :created
+    passhash = Digest::SHA1.hexdigest(params[:password])
+    if # the password is correct
+      render json: {user: @user.as_json(only: [:id, :email, :access_token]) },
+        status: :created
+    else
+      render json: { message: "Invalid login or password." },
+        status: :unauthenticated
+    end
   end
+
+  # def user_lookup
+  #   @user = User.find_by(params[:email])
+  #   render json: {user: @user.as_json(only: [:id, :email, :access_token]) },
+  #   status: :created
+  # end
 
   #def delete
     #if we decide this is needed I will put it in.
