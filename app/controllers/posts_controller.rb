@@ -3,16 +3,7 @@ class PostsController < ApplicationController
 	def index
 		@posts = Post.all
 		if @posts
-
-			
-			# @posts.each do |post|
-			# 	render json: { 
-			# 		id: post.id
-			# 		owner: post.user.as_json(only: [:username, :full_name, :email, :total_points]),
-			# 		img_url: post.img_url,
-			# 		answer: post.answer
-			# 	}, status: :ok
-			# end
+			render :index
 		else
 			render json: { message: "There are no posts in the system." }, status: :no_content
 		end
@@ -20,35 +11,12 @@ class PostsController < ApplicationController
 
 	def incomplete
 		@user = current_user
-		@posts = Post.all
 		@complete = self.complete(@user)
-		if params[:incomplete] == 'true'
-			@posts = Post.all.where.not("id = ?", @complete)
-			if @posts
-				@posts.each do |post|
-					render json: { 
-						id: post.id
-						owner: post.user.as_json(only: [:username, :full_name, :email, :total_points]),
-						img_url: post.img_url,
-						answer: post.answer
-						}, status: :ok
-				end
-			else
-				render json: { error: @posts.errors.full_messages }, status: :bad_request
-			end
+		@posts = Post.all.where.not("id = ?", @complete)
+		if @posts
+			render :incomplete
 		else
-			if @posts
-				@posts.each do |post|
-					render json: { 
-						id: post.id
-						owner: post.user.as_json(only: [:username, :full_name, :email, :total_points]),
-						img_url: post.img_url,
-						answer: post.answer
-						}, status: :ok
-				end
-			else
-				render json: { message: "There are no posts in the system." }, status: :no_content
-			end			
+			render json: { error: @posts.errors.full_messages }, status: :bad_request
 		end
 	end
 
@@ -69,14 +37,7 @@ class PostsController < ApplicationController
 	def user
 		@posts = Post.find_by(user_id: params[:user_id])
 		if @posts
-			@posts.each do |post|
-				render json: { 
-					id: post.id
-					owner: post.user.as_json(only: [:username, :full_name, :email, :total_points]),
-					img_url: post.img_url,
-					answer: post.answer
-					}, status: :ok
-			end
+			render :user
 		else
 			render json: { error: @posts.errors.full_messages }, status: :bad_request
 		end
