@@ -68,7 +68,12 @@ class GuessesController < ApplicationController
 			if @guess.answer == @post.answer
 				@post.solution = @guess.id
 			end
-			render json: { message: "The guess was created and stored successfully." }, status: :created
+			render json: {  
+				owner: @user.as_json(only: [:username, :full_name, :email, :total_points]),
+				post_id: @guess.post_id,
+				guess: @guess.guess,
+				points: @guess.points
+				}, status: :created
 		else
 			render json: { errors: @guess.errors.full_messages }, status: :unprocessable_entity
 		end
