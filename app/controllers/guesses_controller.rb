@@ -52,10 +52,15 @@ class GuessesController < ApplicationController
 	end
 
 	def create
+		@post = Post.find(params[:post_id])
 		@user_guesses = Post.find(params[:post_id]).guesses.where(user_id: current_user.id).count
-		points = 100 - @user_guesses * 10
-		if points < 0
-			points = 0
+		points = 0
+		if params[:guess] =~ /#{@post.answer}/ 
+			points = 100 - @user_guesses * 10
+			if points < 0
+				points = 0
+			end
+			points
 		end
 		@guess = Guess.new(user_id: current_user.id, post_id: params[:post_id], 
 											 guess: params[:guess].downcase, points: points)
