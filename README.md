@@ -51,8 +51,9 @@ username
 password
 ```
 * **Response**
+
+-Example Response
 ```
-		      -Example Response
 		      {
   "user": {
     "id": 1,
@@ -80,8 +81,9 @@ username
 password
 ```
 * **Response**
+
+-Example Response
 ```
-		-Example Response
 		No data
 ```
 **Status Codes**
