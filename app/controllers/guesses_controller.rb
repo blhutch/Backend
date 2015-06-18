@@ -14,7 +14,7 @@ class GuessesController < ApplicationController
 				}
 			end
 		else
-			render json: { errors: post.errors.full_messages }, status: :unprocessable_entity
+			render json: { errors: post.errors.full_messages }, status: :bad_request
 		end	
 	end
 
@@ -32,7 +32,7 @@ class GuessesController < ApplicationController
 				}
 			end
 		else
-			render json: { errors: @guesses.errors.full_messages }, status: :unprocessable_entity
+			render json: { errors: @guesses.errors.full_messages }, status: :bad_request
 		end
 	end
 
@@ -47,7 +47,7 @@ class GuessesController < ApplicationController
 				points: @guess.points
 			}
 		else
-			render json: { errors: @guess.errors.full_messages }, status: :unprocessable_entity
+			render json: { errors: @guess.errors.full_messages }, status: :bad_request
 		end
 	end
 
@@ -71,7 +71,7 @@ class GuessesController < ApplicationController
 		if @guess.destroy
 			render json: { message: "The guess was successfully deleted." }, status: :no_content
 		else
-			render json: { errors: @guess.errors.full_messages }, status: :unprocessable_entity
+			render json: { errors: @guess.errors.full_messages }, status: :bad_request
 		end
 	end
 end
