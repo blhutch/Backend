@@ -3,10 +3,7 @@ class GuessesController < ApplicationController
 
 	def index
 		@post = Post.find(params[:post_id])
-		@guesses = @post.guesses.all.to_a
-		unless @guesses.is_a? Array
-			@guesses = [@guesses]
-		end
+		@guesses = @post.guesses.page(params[:page]).per(25).to_a
 		if @guesses 
 			render :index
 		else
@@ -17,10 +14,7 @@ class GuessesController < ApplicationController
 	def user
 		@post = Post.find(params[:post_id])
 		@user = User.find_by(username: params[:username])
-		@guesses = Guess.where("user_id = ? AND post_id = ?", @user.id, @post.id)
-		# unless @guesses.is_a? Array
-		# 	@guesses = [@guesses]
-		# end
+		@guesses = Guess.where("user_id = ? AND post_id = ?", @user.id, @post.id).to_a
 		if @guesses
 			render :user
 		else

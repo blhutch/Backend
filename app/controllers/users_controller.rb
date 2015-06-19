@@ -39,7 +39,8 @@ class UsersController < ApplicationController
   end 
 
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(25)
+    
     # json.array! @user{ :username, :full_name, :email, :total_points
     #   }
   end
