@@ -47,15 +47,17 @@ class GuessesController < ApplicationController
 		@post = Post.find(params[:post_id])
 		@user_guesses = Post.find(params[:post_id]).guesses.where(user_id: current_user.id).count
 		points = 0
+		complete = false
 		if params[:guess] == @post.answer
 			points = 100 - @user_guesses * 10
 			if points < 0
 				points = 0
 			end
 			points
+			complete = true
 		end
 		@guess = Guess.new(user_id: current_user.id, post_id: params[:post_id], 
-											 guess: params[:guess].downcase, points: points)
+											 guess: params[:guess].downcase, points: points, complete: complete)
 		@user = @guess.user
 		self.update_points(@user, points)
 		if @guess.save

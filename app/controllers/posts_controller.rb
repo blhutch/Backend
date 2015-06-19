@@ -78,7 +78,7 @@ class PostsController < ApplicationController
 
 	def complete(user)
 		complete = []
-		user_completed = user.guesses.where("points > ?", 0)
+		user_completed = user.guesses.where(complete: true)
 		user_completed.each do |guess|
 			complete << guess.post_id
 		end
