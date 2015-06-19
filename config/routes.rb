@@ -17,7 +17,6 @@
 
   # User
   post 'users/signup',  to: 'users#user_signup'
-  options 'users/signup',  to: 'users#user_signup'
   post 'users/signin',  to: 'users#user_signin'
   get 'user/:username', to:  'users#index'
   put 'user/:username', to:  'users#update'
