@@ -1,5 +1,7 @@
 # API Documentation for Dcryptr
 
+Website: dcryptr.herokuapp.com
+
 ## **User Model**
 
 ***SIGNUP***
