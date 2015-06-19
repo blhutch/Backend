@@ -508,7 +508,7 @@ Code | Type | Description
 	"total_points": 150,
   },
   "post_id": 1,
-  "guess": "kitty",
+  "guess": "foobar",
   "points": 80
 }
 ```
