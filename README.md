@@ -152,6 +152,7 @@ GET 'users'
 ```
 
 * **Query**
+
 Name | Description
 --- | ---
 top | Set to **true** to return a response with users ordered by total points (descending).
