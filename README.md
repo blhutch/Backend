@@ -169,7 +169,7 @@ Code | Type | Description
 Lists the posts that a specific has not completed.
 
 Path: 
-`GET 'posts/user/:user_id/incomplete'`
+`GET '/posts/user/:username/incomplete'`
 
 **Parameters**
 *None*
@@ -246,7 +246,7 @@ Code | Type | Description
 Shows all posts created by a specified user.
 
 Path: 
-`GET '/posts/user/:user_id'`
+`GET '/posts/user/:username`
 
 **Parameters**
 *None*
@@ -320,10 +320,10 @@ Code | Type | Description
 {
   "id": 1,
   "owner": {
-	"username": "zebracakes",
-	"full_name": "Lil Debbie",
-	"email": "lil@debbie.com",
-	"total_points": 300,
+		"username": "zebracakes",
+		"full_name": "Lil Debbie",
+		"email": "lil@debbie.com",
+		"total_points": 300,
   },
   "img_url": "http://i.imgur.com/uyQQK2A.png",
   "answer": "snow"
@@ -348,9 +348,8 @@ Code | Type | Description
 
 **Example Response**
 ```
-{
-  message: "The post was successfully deleted." 
-}
+No Written Reponse.
+Only 204 Code is returned.
 ```
 
 

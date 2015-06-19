@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
 	# Post
 	get 'posts', to: 'posts#index'																   # Index of all Posts
-	get 'posts/user/:user_id/incomplete', to: 'posts#incomplete'     # Index of all Posts that the user has not completed
+	get 'posts/user/:username/incomplete', to: 'posts#incomplete'     # Index of all Posts that the user has not completed
 	get 'post/:post_id', to: 'posts#show' 													 # Shows a specific post
-	get 'posts/user/:user_id', to: 'posts#user' 										 # Shows all posts created by a specific user
+	get 'posts/user/:username', to: 'posts#user' 										 # Shows all posts created by a specific user
 	post 'posts', to: 'posts#create'																 # Creates a post
 	delete 'post/:post_id', to: 'posts#destroy'											 # Deletes a specific post  
 
