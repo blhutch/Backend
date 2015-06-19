@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 	before_action :authenticate_with_token!
 
 	def index
-		@posts = Post.page(params[:page]).per(params[:per])
+		@posts = Post.page(params[:page]).per(params[:per]).to_a
 		if @posts
 			render :index
 		else
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 	def incomplete
 		@user = current_user
 		@complete = self.complete(@user)
-		@posts = Post.where.not("id = ?", @complete).page(params[:page]).per(params[:per])
+		@posts = Post.where.not("id = ?", @complete).page(params[:page]).per(params[:per]).to_a
 		if @posts
 			render :incomplete
 		else
