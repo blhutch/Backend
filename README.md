@@ -4,24 +4,43 @@ Website: dcryptr.herokuapp.com
 
 ## Table of Contents
 
-1. [User Model](#user-model)
+1. [Pagination](#pagination)
+2. [User Model](#user-model)
 	* [Sign Up](#signup)
 	* [Sign In](#signin)
 	* [Delete](#delete)
 	* [Index](#index)
-2. [Post Model](#post-model)
+3. [Post Model](#post-model)
 	* [Posts Index](#posts-index)
 	* [Incomplete Posts for a User](#incomplete-posts-for-a-user)
 	* [Show a Post](#show-a-post)
 	* [Show a User's Posts](#show-a-users-posts)
 	* [Create a Post](#create-a-post)
 	* [Delete a Post](#delete-a-post)
-3. [Guess Model](#guess-model)
+4. [Guess Model](#guess-model)
 	* [Show All Guesses of a Post](#show-all-guesses-of-a-particular-post)
 	* [Show Guesses for a User in a Post](#show-guesses-for-a-user-in-a-particular-post)
 	* [Create a Guess](#create-a-guess)
 	* [Show a Guess](#show-a-guess)
 	* [Delete a Guess](#delete-a-guess)
+
+## **Pagination**
+All request methods that have pagination implemented in its use will will state "**Pagination Enabled**" in its description. If no 'page' or 'per' parameter is specified, the API will automatically apply its default. These parameters are passed in the path as a query.
+
+**Parameters**
+
+Name | Default | Description
+--- | --- | ---
+page | 1 | **Optional.** Set the page of data to access.
+per | 25 | **Optional.** Set how many items will be retrieved per page.
+
+**Example Path**
+
+`GET '/posts?page=4&per=50'`
+
+OR
+
+`GET '/posts?page=4'`
 
 ## **User Model**
 
@@ -119,6 +138,8 @@ Code | Type | Description
 
 
 #### ***INDEX***
+**Pagination Enabled**
+
 * **Path**
 ```
 users
@@ -144,6 +165,7 @@ Code | Type | Description
 ## **Post Model**
 
 #### Posts Index
+**Pagination Enabled**
 List of all posts in the database.
 
 Path: 
@@ -189,6 +211,8 @@ Code | Type | Description
 ```
 
 #### Incomplete Posts for a User
+
+**Pagination Enabled**
 Lists the posts that a specific has not completed.
 
 Path: 
@@ -266,6 +290,8 @@ Code | Type | Description
 ```
 
 #### Show a User's Posts
+
+**Pagination Enabled**
 Shows all posts created by a specified user.
 
 Path: 
@@ -380,6 +406,8 @@ Only 204 Code is returned.
 ## **Guess Model**
 
 #### Show All Guesses of a Particular Post
+
+**Pagination Enabled**
 Lists all the guesses in a specified post from all users.
 
 Path: 
@@ -427,6 +455,8 @@ Code | Type | Description
 ```
 
 #### Show guesses for a user in a particular post
+
+**Pagination Enabled**
 Lists all the guesses for a particular user in a specified post.
 
 Path:
