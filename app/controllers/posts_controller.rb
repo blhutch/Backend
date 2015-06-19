@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 	def index
 		@posts = Post.page(params[:page]).per(params[:per]).to_a
 		if @posts
-			render :index
+			render 'index.json.jbuilder', status: :ok
 		else
 			render json: { message: "There are no posts in the system." }, status: :no_content
 		end
