@@ -35,10 +35,10 @@ post 'users/signup'
 ``` 
 id (generated at signup)
 username
-full name
+full_name
 email
 password
-total points
+total_points
 access_token (generated at signup)
 ```
 * **Response**
