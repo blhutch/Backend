@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Specify Ruby version for Heroku deployment
 ruby '2.1.5'
 
+# Allows pagination of API requests
+gem 'kaminari'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
@@ -35,6 +37,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  # Add to assist in development debugging.
 	gem 'pry'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -49,4 +52,6 @@ end
 group :production do 
 	# Added for Heroku deployment
 	gem 'rails_12factor'
+	# Allows user authentication with token
+	gem 'rack-cors', require: 'rack/cors'
 end
