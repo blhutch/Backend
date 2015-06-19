@@ -360,7 +360,7 @@ Only 204 Code is returned.
 Lists all the guesses in a specified post from all users.
 
 Path: 
-	`GET 'posts/:post_id/guesses'`
+	`GET '/post/:post_id/guesses'`
 
 **Parameters** 
 *None*
@@ -406,7 +406,7 @@ Code | Type | Description
 Lists all the guesses for a particular user in a specified post.
 
 Path:
-`GET 'posts/:post_id/guesses/user/:username'`
+`GET '/post/:post_id/guesses/user/:username'`
 
 **Parameters**
 *None*
@@ -452,7 +452,7 @@ Code | Type | Description
 Creates a guess on a specified post from the logged in user.
 
 Path: 
-`POST 'posts/:post_id/guesses'`
+`POST '/post/:post_id/guesses'`
 
 **Parameters**
 
@@ -494,7 +494,7 @@ Code | Type | Description
 Returns a specified guess.
 
 Path: 
-`GET 'guess/:guess_id'`
+`GET '/guess/:guess_id'`
 
 **Parameters**
 *None*
@@ -526,7 +526,7 @@ Code | Type | Description
 Deletes a specified guess.
 
 Path: 
-`DELETE 'guess/:guess_id'`
+`DELETE '/guess/:guess_id'`
 
 **Parameters**
 *None*
@@ -537,6 +537,7 @@ Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
 400 | Error | Bad Request. Specified parameters do not match.
+401 | Error | Unauthorized. A different user is not authorized to delete another user's guess.
 
 **Example Response**
 ```
