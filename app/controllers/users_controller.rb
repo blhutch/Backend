@@ -39,7 +39,11 @@ class UsersController < ApplicationController
   end 
 
   def index
-    @users = User.page(params[:page]).per(25)
+    if params[:top] == "true"
+      @users = User.order(total_points: :desc).page(params[:page]).per(params[:per]).to_a
+    else
+      @users = User.page(params[:page]).per(params[:per]).to_a
+    end
     
     # json.array! @user{ :username, :full_name, :email, :total_points
     #   }
