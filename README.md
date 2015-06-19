@@ -420,7 +420,8 @@ Code | Type | Description
 	},
 	"post_id": 1,
 	"guess": "kitty",
-	"points": 80
+	"points": 80,
+	"potential_points": 90
   }
 ]
 ```
@@ -454,7 +455,8 @@ Code | Type | Description
 	},
 	"post_id": 1,
 	"guess": "foobar",
-	"points": 0
+	"points": 0,
+	"potential_points": 90
   },
   {
   	"id": 2,
@@ -466,7 +468,8 @@ Code | Type | Description
 	},
 	"post_id": 1,
 	"guess": "kitty",
-    "points": 80
+  "points": 80,
+  "potential_points": 90
   }
 ]
 ```
@@ -509,7 +512,7 @@ Code | Type | Description
   },
   "post_id": 1,
   "guess": "foobar",
-  "points": 80
+  "potential_points": 90
 }
 ```
 
@@ -541,7 +544,8 @@ Code | Type | Description
   },
   "post_id": 1,
   "guess": "kitty",
-  "points": 80
+  "points": 80,
+  "potential_points": 90
 }
 ```
 

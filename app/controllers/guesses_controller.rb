@@ -3,7 +3,7 @@ class GuessesController < ApplicationController
 
 	def index
 		@post = Post.find(params[:post_id])
-		@guesses = @post.guesses.all
+		@guesses = @post.guesses.all.to_a
 		unless @guesses.is_a? Array
 			@guesses = [@guesses]
 		end
@@ -48,6 +48,7 @@ class GuessesController < ApplicationController
 		@user_guesses = Post.find(params[:post_id]).guesses.where(user_id: current_user.id).count
 		points = 0
 		complete = false
+		potential_points = 90 - @user_guesses * 10
 		if params[:guess] == @post.answer
 			points = 100 - @user_guesses * 10
 			if points < 0
@@ -57,7 +58,8 @@ class GuessesController < ApplicationController
 			complete = true
 		end
 		@guess = Guess.new(user_id: current_user.id, post_id: params[:post_id], 
-											 guess: params[:guess].downcase, points: points, complete: complete)
+											 guess: params[:guess].downcase, points: points, 
+											 complete: complete, potential_points: potential_points)
 		@user = @guess.user
 		self.update_points(@user, points)
 		if @guess.save
@@ -69,7 +71,8 @@ class GuessesController < ApplicationController
 				owner: @user.as_json(only: [:username, :full_name, :email, :total_points]),
 				post_id: @guess.post_id,
 				guess: @guess.guess,
-				points: @guess.points
+				points: @guess.points,
+				potential_points: @guess.potential_points
 				}, status: :created
 		else
 			render json: { errors: @guess.errors.full_messages }, status: :unprocessable_entity
