@@ -3,7 +3,7 @@ class GuessesController < ApplicationController
 
 	def index
 		@post = Post.find(params[:post_id])
-		@guesses = @post.guesses.all
+		@guesses = @post.guesses.all.to_a
 		unless @guesses.is_a? Array
 			@guesses = [@guesses]
 		end
@@ -48,7 +48,7 @@ class GuessesController < ApplicationController
 		@user_guesses = Post.find(params[:post_id]).guesses.where(user_id: current_user.id).count
 		points = 0
 		complete = false
-		potential_points = 100 - @user_guesses * 10
+		potential_points = 90 - @user_guesses * 10
 		if params[:guess] == @post.answer
 			points = 100 - @user_guesses * 10
 			if points < 0
