@@ -44,7 +44,7 @@ OR
 
 ## **User Model**
 
-#### ***SIGNUP***
+#### ***SIGN UP***
 * **Path:** 
 ``` 
 post 'users/signup'
@@ -65,14 +65,14 @@ access_token (generated at signup)
 - Example Response
 ```
 	{
-  		"user": {
-    	            "id": 3,
-    	            "username": "TCUfrog",
-    	            "full_name": "Ray Barnard",
-    	           "email": "frog@gmail.com",
-    	           "total_points": 0,
-    	           "access_token": "a7f8882b9c24cd049c243e1f8510cb71"
-  		}
+		"user": {
+			"id": 3,
+			"username": "TCUfrog",
+			"full_name": "Ray Barnard",
+			"email": "frog@gmail.com",
+			"total_points": 0,
+			"access_token": "a7f8882b9c24cd049c243e1f8510cb71"
+  	}
 	}
 ```
 
@@ -83,7 +83,7 @@ Code | Type | Description
 200 | Success | Request was received and delivered successfully.
 400 | Error | Bad Request. Specified parameters do not match.
 
-#### ***SIGNIN***
+#### ***SIGN IN***
 * **Path:** 
 ```
 post  'users/signin'
@@ -116,7 +116,7 @@ Code | Type | Description
 #### ***DELETE***
 * **Path**
 ```
-'user/:username'
+ DELETE 'user/:username'
 ```
 * **Params**
 ```
@@ -140,15 +140,25 @@ Code | Type | Description
 #### ***INDEX***
 **Pagination Enabled**
 
+
 * **Path**
 ```
-users
+GET 'users'
 ```
 * **Params**
 ```
 		username
 		password
 ```
+
+* **Query**
+Name | Description
+--- | ---
+top | Set to **true** to return a response with users ordered by total points (descending).
+
+Example:
+`GET 'users?top=true'`
+
 * **Response**
 - Example Response	
 ```
