@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+	before_action :authenticate_with_token!
 
 	def index
 		@posts = Post.all
@@ -12,7 +13,7 @@ class PostsController < ApplicationController
 	def incomplete
 		@user = current_user
 		@complete = self.complete(@user)
-		@posts = Post.all.where.not("id = ?", @complete)
+		@posts = Post.where.not("id = ?", @complete)
 		if @posts
 			render :incomplete
 		else
@@ -22,10 +23,11 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:post_id])
+		@user = @post.user
 		if @post
 			render json: { 
-				id: @post.id
-				owner: @post.user.as_json(only: [:username, :full_name, :email, :total_points]),
+				id: @post.id,
+				owner: @user.as_json(only: [:username, :full_name, :email, :total_points]),
 				img_url: @post.img_url,
 				answer: @post.answer
 				}, status: :ok
@@ -35,7 +37,11 @@ class PostsController < ApplicationController
 	end
 
 	def user
-		@posts = Post.find_by(user_id: params[:user_id])
+		user = User.find_by(username: params[:username])
+		@posts = Post.find_by(user_id: user.id)
+		unless @posts.is_a? Array
+			@posts = [@posts]
+		end
 		if @posts
 			render :user
 		else
@@ -46,10 +52,11 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(user_id: current_user.id, img_url: params[:img_url], 
 										 answer: params[:answer])
+		@user = @post.user
 		if @post.save
 			render json: { 
-				id: @post.id
-				owner: @post.user.as_json(only: [:username, :full_name, :email, :total_points]),
+				id: @post.id,
+				owner: @user.as_json(only: [:username, :full_name, :email, :total_points]),
 				img_url: @post.img_url,
 				answer: @post.answer
 			}, status: :created
@@ -71,9 +78,12 @@ class PostsController < ApplicationController
 
 	def complete(user)
 		complete = []
-		user_completed = user.guesses.where("points > ?", 0)
+		user_completed = user.guesses.where(complete: true)
 		user_completed.each do |guess|
-			complete << post.post_id
+			complete << guess.post_id
+		end
+		if complete.empty?
+			complete << 0
 		end
 		complete
 	end

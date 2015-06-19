@@ -1,5 +1,7 @@
 # API Documentation for Dcryptr
 
+Website: dcryptr.herokuapp.com
+
 ## **User Model**
 
 ***SIGNUP***
@@ -169,7 +171,7 @@ Code | Type | Description
 Lists the posts that a specific has not completed.
 
 Path: 
-`GET 'posts/user/:user_id/incomplete'`
+`GET '/posts/user/:username/incomplete'`
 
 **Parameters**
 *None*
@@ -246,7 +248,7 @@ Code | Type | Description
 Shows all posts created by a specified user.
 
 Path: 
-`GET '/posts/user/:user_id'`
+`GET '/posts/user/:username`
 
 **Parameters**
 *None*
@@ -320,10 +322,10 @@ Code | Type | Description
 {
   "id": 1,
   "owner": {
-	"username": "zebracakes",
-	"full_name": "Lil Debbie",
-	"email": "lil@debbie.com",
-	"total_points": 300,
+		"username": "zebracakes",
+		"full_name": "Lil Debbie",
+		"email": "lil@debbie.com",
+		"total_points": 300,
   },
   "img_url": "http://i.imgur.com/uyQQK2A.png",
   "answer": "snow"
@@ -348,9 +350,8 @@ Code | Type | Description
 
 **Example Response**
 ```
-{
-  message: "The post was successfully deleted." 
-}
+No Written Reponse.
+Only 204 Code is returned.
 ```
 
 
@@ -361,7 +362,7 @@ Code | Type | Description
 Lists all the guesses in a specified post from all users.
 
 Path: 
-	`GET 'posts/:post_id/guesses'`
+	`GET '/post/:post_id/guesses'`
 
 **Parameters** 
 *None*
@@ -407,7 +408,7 @@ Code | Type | Description
 Lists all the guesses for a particular user in a specified post.
 
 Path:
-`GET 'posts/:post_id/guesses/user/:username'`
+`GET '/post/:post_id/guesses/user/:username'`
 
 **Parameters**
 *None*
@@ -450,10 +451,10 @@ Code | Type | Description
 ```
 
 #### Create a Guess
-Creates a guess on a specified post from the logged in user.
+Creates a guess on a specified post from the logged in user. **Note:** A user can only complete a specific post once. If a user creates an extra guess where they complete a specific post more than once, it will cause the 'Incomplete' route to break for that user. **ONLY COMPLETE A POST ONCE PER USER!**
 
 Path: 
-`POST 'posts/:post_id/guesses'`
+`POST '/post/:post_id/guesses'`
 
 **Parameters**
 
@@ -495,7 +496,7 @@ Code | Type | Description
 Returns a specified guess.
 
 Path: 
-`GET 'guess/:guess_id'`
+`GET '/guess/:guess_id'`
 
 **Parameters**
 *None*
@@ -527,7 +528,7 @@ Code | Type | Description
 Deletes a specified guess.
 
 Path: 
-`DELETE 'guess/:guess_id'`
+`DELETE '/guess/:guess_id'`
 
 **Parameters**
 *None*
@@ -538,6 +539,7 @@ Code | Type | Description
 ---|---|---
 200 | Success | Request was received and delivered successfully.
 400 | Error | Bad Request. Specified parameters do not match.
+401 | Error | Unauthorized. A different user is not authorized to delete another user's guess.
 
 **Example Response**
 ```
