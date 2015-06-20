@@ -25,7 +25,7 @@ class UsersController < ApplicationController
         status: :created
     else
       render json: { message: "Invalid login or password." },
-        status: :unauthenticated
+        status: :unauthorized
     end
   end
 
