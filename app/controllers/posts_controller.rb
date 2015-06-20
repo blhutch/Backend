@@ -82,7 +82,7 @@ class PostsController < ApplicationController
 		if complete.empty?
 			complete << 0
 		end
-		complete
+		complete = complete.uniq
 	end
 
 end
