@@ -41,8 +41,10 @@ class UsersController < ApplicationController
   def index
     if params[:top] == "true"
       @users = User.order(total_points: :desc).page(params[:page]).per(params[:per]).to_a
+      render 'index.json.jbuilder', status: :ok
     else
       @users = User.page(params[:page]).per(params[:per]).to_a
+      render 'index.json.jbuilder', status: :ok
     end
     
     # json.array! @user{ :username, :full_name, :email, :total_points
