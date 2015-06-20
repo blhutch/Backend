@@ -48,8 +48,13 @@ class PostsController < ApplicationController
 	end
 
 	def create
+		if params[:hint].blank?
+			hint = ""
+		else
+			hint = params[:hint]
+		end
 		@post = Post.new(user_id: current_user.id, img_url: params[:img_url], 
-										 answer: params[:answer], hint: params[:hint])
+										 answer: params[:answer], hint: hint)
 		@user = @post.user
 		if @post.save
 			render json: { 

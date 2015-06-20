@@ -138,7 +138,7 @@ Code | Type | Description
 
 
 #### ***INDEX***
-**Pagination Enabled**
+**Pagination Enabled: **
 
 
 * **Path**
@@ -191,7 +191,7 @@ Code | Type | Description
 ## **Post Model**
 
 #### Posts Index
-**Pagination Enabled**
+**Pagination Enabled: **
 List of all posts in the database.
 
 Path: 
@@ -234,13 +234,25 @@ Code | Type | Description
 		"answer": "snow",
 		"hint": "cold"
   }
+    {
+  	"id": ,
+		"owner": {
+	  	"username": "zebracakes",
+	  	"full_name": "Lil Debbie",
+	  	"email": "lil@debbie.com",
+	  	"total_points": 300,
+		},
+		"img_url": "http://i.imgur.com/uyQQK2A.png",
+		"answer": "sugar",
+		"hint": ""
+  }
 ]
     
 ```
 
 #### Incomplete Posts for a User
 
-**Pagination Enabled**
+**Pagination Enabled: **
 Lists the posts that a specific has not completed.
 
 Path: 
@@ -322,7 +334,7 @@ Code | Type | Description
 
 #### Show a User's Posts
 
-**Pagination Enabled**
+**Pagination Enabled: **
 Shows all posts created by a specified user.
 
 Path: 
@@ -380,7 +392,7 @@ Name | Type | Description
 --- | --- | ---
 img_url | string | **Required.** Link to the image.
 answer | string | **Required.** User's answer input.
-hint | string | **Optional** User's hint input.
+hint | string | **Optional.** User's hint input. If input is empty, the API return will be an empty string.
 
 **Status Codes**
 
@@ -443,7 +455,7 @@ Only 204 Code is returned.
 
 #### Show All Guesses of a Particular Post
 
-**Pagination Enabled**
+**Pagination Enabled: **
 Lists all the guesses in a specified post from all users.
 
 Path: 
@@ -492,7 +504,7 @@ Code | Type | Description
 
 #### Show guesses for a user in a particular post
 
-**Pagination Enabled**
+**Pagination Enabled: **
 Lists all the guesses for a particular user in a specified post.
 
 Path:
