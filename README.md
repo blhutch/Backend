@@ -516,7 +516,7 @@ Code | Type | Description
 ```
 
 #### Create a Guess
-Creates a guess on a specified post from the logged in user. **Note:** A user can only complete a specific post once. If a user creates an extra guess where they complete a specific post more than once, it will cause the 'Incomplete' route to break for that user. **ONLY COMPLETE A POST ONCE PER USER!**
+Creates a guess on a specified post from the logged in user. **Note:** A user should only complete a specific post once.
 
 Path: 
 `POST '/post/:post_id/guesses'`
