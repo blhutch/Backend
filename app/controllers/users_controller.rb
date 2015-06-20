@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def user_signin
     @user = User.find_by(username: params[:username])
     passhash = Digest::SHA1.hexdigest(params[:password])
-    if passhash == @user.password
+    if @user && passhash == @user.password
       render json: {user: @user.as_json(only: [:id, :email, :access_token]) },
         status: :created
     else
