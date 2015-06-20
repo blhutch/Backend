@@ -16,7 +16,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   def user_signin
     @user = User.find_by(username: params[:username])
     passhash = Digest::SHA1.hexdigest(params[:password])
@@ -29,13 +28,15 @@ class UsersController < ApplicationController
     end
   end
 
-
   def delete
     @user = User.find_by(username: params[:username])
     if current_user.access_token == @user.access_token
       @user.destroy
+      render json: { message: "Account deleted." }, status: :no_content
+    else
+      render json: { message: "You are not authorized to delete this account!" }, 
+        status: :unauthorized
     end
-    render json: { message: "Test message" }, status: :no_content
   end 
 
   def index
@@ -59,9 +60,5 @@ class UsersController < ApplicationController
   #   @user = User.find_by(params[:email])
   #   render json: {user: @user.as_json(only: [:id, :email, :access_token]) },
   #   status: :created
-  # end
-
-  
-
-  
+  # end  
 end
