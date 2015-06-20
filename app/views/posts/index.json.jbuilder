@@ -8,4 +8,5 @@ json.array! @posts do |post|
 	end
 	json.img_url post.img_url
 	json.answer post.answer
+	json.hint post.hint
 end

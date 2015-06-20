@@ -64,16 +64,16 @@ access_token (generated at signup)
 
 - Example Response
 ```
-	{
-		"user": {
-			"id": 3,
-			"username": "TCUfrog",
-			"full_name": "Ray Barnard",
-			"email": "frog@gmail.com",
-			"total_points": 0,
-			"access_token": "a7f8882b9c24cd049c243e1f8510cb71"
-  	}
-	}
+{
+	"user": {
+		"id": 3,
+		"username": "TCUfrog",
+		"full_name": "Ray Barnard",
+		"email": "frog@gmail.com",
+		"total_points": 0,
+		"access_token": "a7f8882b9c24cd049c243e1f8510cb71"
+  }
+}
 ```
 
 **Status Codes**
@@ -97,7 +97,7 @@ password
 
 - Example Response
 ```
-		      {
+{
   "user": {
     "id": 1,
     "email": "test@gmail.com",
@@ -163,7 +163,22 @@ Example:
 * **Response**
 - Example Response	
 ```
-		  [{"id":1,"username":"redbull","full_name":"Red      Bull","email":"test@gmail.com","total_points":0},{"id":2,"username":"booyah","full_name":"Eddie Mercury","email":"1232d@gmail.com","total_points":0}]
+[
+	{
+		"id": 1,
+		"username": "redbull",
+		"full_name": "Red Bull",
+		"email": "test@gmail.com",
+		"total_points": 0
+	},
+	{
+		"id": 2,
+		"username": "booyah",
+		"full_name": "Eddie Mercury",
+		"email": "1232d@gmail.com",
+		"total_points": 0
+	}
+]
 ```		  
 **Status Codes**
 
@@ -197,25 +212,27 @@ Code | Type | Description
 [
   {
   	"id": 1,
-	"owner": {
-	  "username": "testusername",
-	    "full_name": "John Doe",
-		"email": "test@email.com",
-		"total_points": 150,
-	},
-	"img_url": "http://i.imgur.com/zCpxKJQ.png",
-	"answer": "potato"
+		"owner": {
+	  	"username": "testusername",
+	  	  "full_name": "John Doe",
+			"email": "test@email.com",
+			"total_points": 150,
+		},
+		"img_url": "http://i.imgur.com/zCpxKJQ.png",
+		"answer": "potato",
+		"hint": "food"
   }
   {
   	"id": 2,
-	"owner": {
-	  "username": "zebracakes",
-	  "full_name": "Lil Debbie",
-	  "email": "lil@debbie.com",
-	  "total_points": 300,
-	},
-	"img_url": "http://i.imgur.com/uyQQK2A.png",
-	"answer": "snow"
+		"owner": {
+	  	"username": "zebracakes",
+	  	"full_name": "Lil Debbie",
+	  	"email": "lil@debbie.com",
+	  	"total_points": 300,
+		},
+		"img_url": "http://i.imgur.com/uyQQK2A.png",
+		"answer": "snow",
+		"hint": "cold"
   }
 ]
     
@@ -245,25 +262,27 @@ Code | Type | Description
 [
   {
   	"id": 1,
-	"owner": {
-	  "username": "testusername",
+		"owner": {
+	  	"username": "testusername",
 	    "full_name": "John Doe",
-		"email": "test@email.com",
-		"total_points": 150,
-	},
-	"img_url": "http://i.imgur.com/zCpxKJQ.png",
-	"answer": "potato"
+			"email": "test@email.com",
+			"total_points": 150,
+		},
+		"img_url": "http://i.imgur.com/zCpxKJQ.png",
+		"answer": "potato",
+		"hint": "food"
   }
   {
   	"id": 2,
-	"owner": {
-	  "username": "zebracakes",
-	  "full_name": "Lil Debbie",
-	  "email": "lil@debbie.com",
-	  "total_points": 300,
-	},
-	"img_url": "http://i.imgur.com/uyQQK2A.png",
-	"answer": "snow"
+		"owner": {
+	  	"username": "zebracakes",
+	  	"full_name": "Lil Debbie",
+	  	"email": "lil@debbie.com",
+	  	"total_points": 300,
+		},
+		"img_url": "http://i.imgur.com/uyQQK2A.png",
+		"answer": "snow",
+		"hint": "food"
   }
 ]
 ```
@@ -290,13 +309,14 @@ Code | Type | Description
 {
   "id": 1,
   "owner": {
-	"username": "zebracakes",
-	"full_name": "Lil Debbie",
-	"email": "lil@debbie.com",
-	"total_points": 300,
+		"username": "zebracakes",
+		"full_name": "Lil Debbie",
+		"email": "lil@debbie.com",
+		"total_points": 300,
   },
 	"img_url": "http://i.imgur.com/zCpxKJQ.png",
-	"answer": "potato"
+	"answer": "potato",
+	"hint": "food"
 }
 ```
 
@@ -323,25 +343,27 @@ Code | Type | Description
 [
   {
   	"id": 1,
-	"owner": {
-	  "username": "zebracakes",
-	  "full_name": "Lil Debbie",
-	  "email": "lil@debbie.com",
-	  "total_points": 300,
-	},
-	"img_url": "http://i.imgur.com/zCpxKJQ.png",
-	"answer": "potato"
+		"owner": {
+	  	"username": "zebracakes",
+	  	"full_name": "Lil Debbie",
+	  	"email": "lil@debbie.com",
+	  	"total_points": 300,
+		},
+		"img_url": "http://i.imgur.com/zCpxKJQ.png",
+		"answer": "potato",
+		"hint": "food"
   }
   {
   	"id": 2,
-	"owner": {
-	  "username": "zebracakes",
-	  "full_name": "Lil Debbie",
-	  "email": "lil@debbie.com",
-	  "total_points": 300,
-	},
-	"img_url": "http://i.imgur.com/uyQQK2A.png",
-	"answer": "snow"
+		"owner": {
+	  	"username": "zebracakes",
+	  	"full_name": "Lil Debbie",
+	  	"email": "lil@debbie.com",
+	  	"total_points": 300,
+		},
+		"img_url": "http://i.imgur.com/uyQQK2A.png",
+		"answer": "snow",
+		"hint": "cold"
   }
 ]
 ```
@@ -358,6 +380,7 @@ Name | Type | Description
 --- | --- | ---
 img_url | string | **Required.** Link to the image.
 answer | string | **Required.** User's answer input.
+hint | string | **Optional** User's hint input.
 
 **Status Codes**
 
@@ -370,7 +393,8 @@ Code | Type | Description
 ```
 {
   "img_url": "http://i.imgur.com/uyQQK2A.png",
-  "answer": "snow"
+  "answer": "snow",
+  "hint": "cold"
 }
 
 ```
@@ -386,7 +410,8 @@ Code | Type | Description
 		"total_points": 300,
   },
   "img_url": "http://i.imgur.com/uyQQK2A.png",
-  "answer": "snow"
+  "answer": "snow",
+  "hint": "cold"
 }
 ```
 #### Delete a Post
