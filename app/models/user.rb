@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates :password, :access_token, presence: true
   validates :email, uniqueness: true, presence: true
   validates :email, format: { with: EMAIL_REGEX,
-                              message: "is not a valid email." }
+                              message: "is not a valid email" }
   validates :username, uniqueness: true, presence: true
 
   before_validation :ensure_access_token
