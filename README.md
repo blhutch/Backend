@@ -214,7 +214,7 @@ Code | Type | Description
   	"id": 1,
 		"owner": {
 	  	"username": "testusername",
-	  	  "full_name": "John Doe",
+			"full_name": "John Doe",
 			"email": "test@email.com",
 			"total_points": 150,
 		},
@@ -475,29 +475,29 @@ Code | Type | Description
 ```
 [
   {
-	"id": 1,
-	"owner": {
-	  "username": "testusername",
-	  "full_name": "John Doe",
-	  "email": "test@email.com",
-	  "total_points": 150,
-	},
-	"post_id": 1,
-	"guess": "foobar",
-	"points": 0
+		"id": 1,
+		"owner": {
+	  	"username": "testusername",
+	  	"full_name": "John Doe",
+	  	"email": "test@email.com",
+	  	"total_points": 150,
+		},
+		"post_id": 1,
+		"guess": "foobar",
+		"points": 0
   },
   {
-	"id": 2,
-	"owner": {
-	  "username": "zebracakes",
-	  "full_name": "Lil Debbie",
-	  "email": "lil@debbie.com",
-	  "total_points": 300,
-	},
-	"post_id": 1,
-	"guess": "kitty",
-	"points": 80,
-	"potential_points": 90
+		"id": 2,
+		"owner": {
+	  	"username": "zebracakes",
+	  	"full_name": "Lil Debbie",
+	  	"email": "lil@debbie.com",
+	  	"total_points": 300,
+		},
+		"post_id": 1,
+		"guess": "kitty",
+		"points": 80,
+		"potential_points": 90
   }
 ]
 ```
@@ -525,29 +525,29 @@ Code | Type | Description
 [
   {
   	"id": 1,
-	"owner": {
-	  "username": "testusername",
-	  "full_name": "John Doe",
-	  "email": "test@email.com",
-	  "total_points": 150,
-	},
-	"post_id": 1,
-	"guess": "foobar",
-	"points": 0,
-	"potential_points": 90
+		"owner": {
+	  	"username": "testusername",
+	  	"full_name": "John Doe",
+	  	"email": "test@email.com",
+	  	"total_points": 150,
+		},
+		"post_id": 1,
+		"guess": "foobar",
+		"points": 0,
+		"potential_points": 90
   },
   {
   	"id": 2,
-	"owner": {
-	  "username": "testusername",
-	  "full_name": "John Doe",
-	  "email": "test@email.com",
-	  "total_points": 150,
-	},
-	"post_id": 1,
-	"guess": "kitty",
-  "points": 80,
-  "potential_points": 90
+		"owner": {
+	  	"username": "testusername",
+	  	"full_name": "John Doe",
+	  	"email": "test@email.com",
+	  	"total_points": 150,
+		},
+		"post_id": 1,
+		"guess": "kitty",
+  	"points": 80,
+  	"potential_points": 90
   }
 ]
 ```
@@ -583,10 +583,10 @@ Code | Type | Description
 {
   "id": 1,
   "owner": {
-	"username": "testusername",
-	"full_name": "John Doe",
-	"email": "test@email.com",
-	"total_points": 150,
+		"username": "testusername",
+		"full_name": "John Doe",
+		"email": "test@email.com",
+		"total_points": 150,
   },
   "post_id": 1,
   "guess": "foobar",
