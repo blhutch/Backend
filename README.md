@@ -64,16 +64,16 @@ access_token (generated at signup)
 
 - Example Response
 ```
-	{
-		"user": {
-			"id": 3,
-			"username": "TCUfrog",
-			"full_name": "Ray Barnard",
-			"email": "frog@gmail.com",
-			"total_points": 0,
-			"access_token": "a7f8882b9c24cd049c243e1f8510cb71"
-  	}
-	}
+{
+	"user": {
+		"id": 3,
+		"username": "TCUfrog",
+		"full_name": "Ray Barnard",
+		"email": "frog@gmail.com",
+		"total_points": 0,
+		"access_token": "a7f8882b9c24cd049c243e1f8510cb71"
+  }
+}
 ```
 
 **Status Codes**
@@ -97,7 +97,7 @@ password
 
 - Example Response
 ```
-		      {
+{
   "user": {
     "id": 1,
     "email": "test@gmail.com",
@@ -138,7 +138,7 @@ Code | Type | Description
 
 
 #### ***INDEX***
-**Pagination Enabled**
+**Pagination Enabled: **
 
 
 * **Path**
@@ -163,7 +163,22 @@ Example:
 * **Response**
 - Example Response	
 ```
-		  [{"id":1,"username":"redbull","full_name":"Red      Bull","email":"test@gmail.com","total_points":0},{"id":2,"username":"booyah","full_name":"Eddie Mercury","email":"1232d@gmail.com","total_points":0}]
+[
+	{
+		"id": 1,
+		"username": "redbull",
+		"full_name": "Red Bull",
+		"email": "test@gmail.com",
+		"total_points": 0
+	},
+	{
+		"id": 2,
+		"username": "booyah",
+		"full_name": "Eddie Mercury",
+		"email": "1232d@gmail.com",
+		"total_points": 0
+	}
+]
 ```		  
 **Status Codes**
 
@@ -176,7 +191,7 @@ Code | Type | Description
 ## **Post Model**
 
 #### Posts Index
-**Pagination Enabled**
+**Pagination Enabled: **
 List of all posts in the database.
 
 Path: 
@@ -197,25 +212,39 @@ Code | Type | Description
 [
   {
   	"id": 1,
-	"owner": {
-	  "username": "testusername",
-	    "full_name": "John Doe",
-		"email": "test@email.com",
-		"total_points": 150,
-	},
-	"img_url": "http://i.imgur.com/zCpxKJQ.png",
-	"answer": "potato"
+		"owner": {
+	  	"username": "testusername",
+	  	  "full_name": "John Doe",
+			"email": "test@email.com",
+			"total_points": 150,
+		},
+		"img_url": "http://i.imgur.com/zCpxKJQ.png",
+		"answer": "potato",
+		"hint": "food"
   }
   {
   	"id": 2,
-	"owner": {
-	  "username": "zebracakes",
-	  "full_name": "Lil Debbie",
-	  "email": "lil@debbie.com",
-	  "total_points": 300,
-	},
-	"img_url": "http://i.imgur.com/uyQQK2A.png",
-	"answer": "snow"
+		"owner": {
+	  	"username": "zebracakes",
+	  	"full_name": "Lil Debbie",
+	  	"email": "lil@debbie.com",
+	  	"total_points": 300,
+		},
+		"img_url": "http://i.imgur.com/uyQQK2A.png",
+		"answer": "snow",
+		"hint": "cold"
+  }
+    {
+  	"id": ,
+		"owner": {
+	  	"username": "zebracakes",
+	  	"full_name": "Lil Debbie",
+	  	"email": "lil@debbie.com",
+	  	"total_points": 300,
+		},
+		"img_url": "http://i.imgur.com/uyQQK2A.png",
+		"answer": "sugar",
+		"hint": ""
   }
 ]
     
@@ -223,7 +252,7 @@ Code | Type | Description
 
 #### Incomplete Posts for a User
 
-**Pagination Enabled**
+**Pagination Enabled: **
 Lists the posts that a specific has not completed.
 
 Path: 
@@ -245,25 +274,27 @@ Code | Type | Description
 [
   {
   	"id": 1,
-	"owner": {
-	  "username": "testusername",
+		"owner": {
+	  	"username": "testusername",
 	    "full_name": "John Doe",
-		"email": "test@email.com",
-		"total_points": 150,
-	},
-	"img_url": "http://i.imgur.com/zCpxKJQ.png",
-	"answer": "potato"
+			"email": "test@email.com",
+			"total_points": 150,
+		},
+		"img_url": "http://i.imgur.com/zCpxKJQ.png",
+		"answer": "potato",
+		"hint": "food"
   }
   {
   	"id": 2,
-	"owner": {
-	  "username": "zebracakes",
-	  "full_name": "Lil Debbie",
-	  "email": "lil@debbie.com",
-	  "total_points": 300,
-	},
-	"img_url": "http://i.imgur.com/uyQQK2A.png",
-	"answer": "snow"
+		"owner": {
+	  	"username": "zebracakes",
+	  	"full_name": "Lil Debbie",
+	  	"email": "lil@debbie.com",
+	  	"total_points": 300,
+		},
+		"img_url": "http://i.imgur.com/uyQQK2A.png",
+		"answer": "snow",
+		"hint": "food"
   }
 ]
 ```
@@ -290,19 +321,20 @@ Code | Type | Description
 {
   "id": 1,
   "owner": {
-	"username": "zebracakes",
-	"full_name": "Lil Debbie",
-	"email": "lil@debbie.com",
-	"total_points": 300,
+		"username": "zebracakes",
+		"full_name": "Lil Debbie",
+		"email": "lil@debbie.com",
+		"total_points": 300,
   },
 	"img_url": "http://i.imgur.com/zCpxKJQ.png",
-	"answer": "potato"
+	"answer": "potato",
+	"hint": "food"
 }
 ```
 
 #### Show a User's Posts
 
-**Pagination Enabled**
+**Pagination Enabled: **
 Shows all posts created by a specified user.
 
 Path: 
@@ -323,25 +355,27 @@ Code | Type | Description
 [
   {
   	"id": 1,
-	"owner": {
-	  "username": "zebracakes",
-	  "full_name": "Lil Debbie",
-	  "email": "lil@debbie.com",
-	  "total_points": 300,
-	},
-	"img_url": "http://i.imgur.com/zCpxKJQ.png",
-	"answer": "potato"
+		"owner": {
+	  	"username": "zebracakes",
+	  	"full_name": "Lil Debbie",
+	  	"email": "lil@debbie.com",
+	  	"total_points": 300,
+		},
+		"img_url": "http://i.imgur.com/zCpxKJQ.png",
+		"answer": "potato",
+		"hint": "food"
   }
   {
   	"id": 2,
-	"owner": {
-	  "username": "zebracakes",
-	  "full_name": "Lil Debbie",
-	  "email": "lil@debbie.com",
-	  "total_points": 300,
-	},
-	"img_url": "http://i.imgur.com/uyQQK2A.png",
-	"answer": "snow"
+		"owner": {
+	  	"username": "zebracakes",
+	  	"full_name": "Lil Debbie",
+	  	"email": "lil@debbie.com",
+	  	"total_points": 300,
+		},
+		"img_url": "http://i.imgur.com/uyQQK2A.png",
+		"answer": "snow",
+		"hint": "cold"
   }
 ]
 ```
@@ -358,6 +392,7 @@ Name | Type | Description
 --- | --- | ---
 img_url | string | **Required.** Link to the image.
 answer | string | **Required.** User's answer input.
+hint | string | **Optional.** User's hint input. If input is empty, the API return will be an empty string.
 
 **Status Codes**
 
@@ -370,7 +405,8 @@ Code | Type | Description
 ```
 {
   "img_url": "http://i.imgur.com/uyQQK2A.png",
-  "answer": "snow"
+  "answer": "snow",
+  "hint": "cold"
 }
 
 ```
@@ -386,7 +422,8 @@ Code | Type | Description
 		"total_points": 300,
   },
   "img_url": "http://i.imgur.com/uyQQK2A.png",
-  "answer": "snow"
+  "answer": "snow",
+  "hint": "cold"
 }
 ```
 #### Delete a Post
@@ -418,7 +455,7 @@ Only 204 Code is returned.
 
 #### Show All Guesses of a Particular Post
 
-**Pagination Enabled**
+**Pagination Enabled: **
 Lists all the guesses in a specified post from all users.
 
 Path: 
@@ -467,7 +504,7 @@ Code | Type | Description
 
 #### Show guesses for a user in a particular post
 
-**Pagination Enabled**
+**Pagination Enabled: **
 Lists all the guesses for a particular user in a specified post.
 
 Path:

@@ -29,7 +29,8 @@ class PostsController < ApplicationController
 				id: @post.id,
 				owner: @user.as_json(only: [:username, :full_name, :email, :total_points]),
 				img_url: @post.img_url,
-				answer: @post.answer
+				answer: @post.answer,
+				hint: @post.hint
 				}, status: :ok
 		else
 			render json: { error: @post.errors.full_messages }, status: :bad_request
@@ -47,15 +48,21 @@ class PostsController < ApplicationController
 	end
 
 	def create
+		if params[:hint].blank?
+			hint = ""
+		else
+			hint = params[:hint]
+		end
 		@post = Post.new(user_id: current_user.id, img_url: params[:img_url], 
-										 answer: params[:answer])
+										 answer: params[:answer], hint: hint)
 		@user = @post.user
 		if @post.save
 			render json: { 
 				id: @post.id,
 				owner: @user.as_json(only: [:username, :full_name, :email, :total_points]),
 				img_url: @post.img_url,
-				answer: @post.answer
+				answer: @post.answer,
+				hint: @post.hint
 			}, status: :created
 		else
 			render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
