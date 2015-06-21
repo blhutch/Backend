@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
     passhash = Digest::SHA1.hexdigest(params[:password])
     if @user && passhash == @user.password
-      render json: {user: @user.as_json(only: [:id, :email, :access_token]) },
+      render json: {user: @user.as_json(only: [:id, :username, :email, :access_token]) },
         status: :created
     else
       render json: { message: "Invalid login or password." },
