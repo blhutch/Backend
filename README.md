@@ -221,7 +221,7 @@ Code | Type | Description
 		"img_url": "http://i.imgur.com/zCpxKJQ.png",
 		"answer": "potato",
 		"hint": "food"
-  }
+  },
   {
   	"id": 2,
 		"owner": {
@@ -233,8 +233,8 @@ Code | Type | Description
 		"img_url": "http://i.imgur.com/uyQQK2A.png",
 		"answer": "snow",
 		"hint": "cold"
-  }
-    {
+  },
+  {
   	"id": ,
 		"owner": {
 	  	"username": "zebracakes",
