@@ -392,7 +392,7 @@ Path:
 Name | Type | Description
 --- | --- | ---
 img_url | string | **Required.** Link to the image.
-answer | string | **Required.** User's answer input.
+answer | string | **Required.** User's answer input. Character Limit: 10.
 hint | string | **Optional.** User's hint input. If input is empty, the API return will be an empty string.
 
 **Status Codes**
@@ -563,7 +563,7 @@ Path:
 
 Name | Type | Description
 --- | --- | ---
-guess | string | **Required.** User provided guess to the specified post.
+guess | string | **Required.** User provided guess to the specified post. Character Limit: 10.
 
 **Status Codes**
 
