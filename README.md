@@ -100,6 +100,7 @@ password
 		      {
   "user": {
     "id": 1,
+    "username": "bigdog",
     "email": "test@gmail.com",
     "access_token": "20f8f76d0e562b28eef896cad0680640"
   }
