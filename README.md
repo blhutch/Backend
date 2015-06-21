@@ -360,7 +360,7 @@ Code | Type | Description
       "username": "zebracakes",
       "full_name": "Lil Debbie",
       "email": "lil@debbie.com",
-	  	"total_points": 300,
+	  "total_points": 300,
 	},
 	"img_url": "http://i.imgur.com/zCpxKJQ.png",
 	"answer": "potato",
