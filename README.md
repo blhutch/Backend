@@ -6,8 +6,8 @@ Website: dcryptr.herokuapp.com
 
 1. [Pagination](#pagination)
 2. [User Model](#user-model)
-	* [Sign Up](#signup)
-	* [Sign In](#signin)
+	* [Sign Up](#sign-up)
+	* [Sign In](#sign-in)
 	* [Delete](#delete)
 	* [Index](#index)
 3. [Post Model](#post-model)
@@ -65,13 +65,13 @@ access_token (generated at signup)
 - Example Response
 ```
 {
-	"user": {
-		"id": 3,
-		"username": "TCUfrog",
-		"full_name": "Ray Barnard",
-		"email": "frog@gmail.com",
-		"total_points": 0,
-		"access_token": "a7f8882b9c24cd049c243e1f8510cb71"
+  "user": {
+    "id": 3,
+    "username": "TCUfrog",
+    "full_name": "Ray Barnard",
+    "email": "frog@gmail.com",
+    "total_points": 0,
+    "access_token": "a7f8882b9c24cd049c243e1f8510cb71"
   }
 }
 ```
@@ -139,7 +139,7 @@ Code | Type | Description
 
 
 #### ***INDEX***
-**Pagination Enabled: **
+**Pagination Enabled **
 
 
 * **Path**
@@ -165,20 +165,20 @@ Example:
 - Example Response	
 ```
 [
-	{
-		"id": 1,
-		"username": "redbull",
-		"full_name": "Red Bull",
-		"email": "test@gmail.com",
-		"total_points": 0
-	},
-	{
-		"id": 2,
-		"username": "booyah",
-		"full_name": "Eddie Mercury",
-		"email": "1232d@gmail.com",
-		"total_points": 0
-	}
+  {
+    "id": 1,
+    "username": "redbull",
+    "full_name": "Red Bull",
+    "email": "test@gmail.com",
+    "total_points": 0
+  },
+  {
+    "id": 2,
+    "username": "booyah",
+    "full_name": "Eddie Mercury",
+    "email": "1232d@gmail.com",
+    "total_points": 0
+  }
 ]
 ```		  
 **Status Codes**
@@ -212,40 +212,40 @@ Code | Type | Description
 ```
 [
   {
-  	"id": 1,
-		"owner": {
-	  	"username": "testusername",
-			"full_name": "John Doe",
-			"email": "test@email.com",
-			"total_points": 150,
-		},
-		"img_url": "http://i.imgur.com/zCpxKJQ.png",
-		"answer": "potato",
-		"hint": "food"
+    "id": 1,
+    "owner": {
+      "username": "testusername",
+      "full_name": "John Doe",
+      "email": "test@email.com",
+      "total_points": 150,
+    },
+    "img_url": "http://i.imgur.com/zCpxKJQ.png",
+    "answer": "potato",
+    "hint": "food"
   },
   {
   	"id": 2,
-		"owner": {
-	  	"username": "zebracakes",
-	  	"full_name": "Lil Debbie",
-	  	"email": "lil@debbie.com",
-	  	"total_points": 300,
-		},
-		"img_url": "http://i.imgur.com/uyQQK2A.png",
-		"answer": "snow",
-		"hint": "cold"
+    "owner": {
+      "username": "zebracakes",
+      "full_name": "Lil Debbie",
+      "email": "lil@debbie.com",
+      "total_points": 300,
+    },
+    "img_url": "http://i.imgur.com/uyQQK2A.png",
+    "answer": "snow",
+    "hint": "cold"
   },
   {
   	"id": ,
-		"owner": {
-	  	"username": "zebracakes",
-	  	"full_name": "Lil Debbie",
-	  	"email": "lil@debbie.com",
-	  	"total_points": 300,
-		},
-		"img_url": "http://i.imgur.com/uyQQK2A.png",
-		"answer": "sugar",
-		"hint": ""
+    "owner": {
+      "username": "zebracakes",
+      "full_name": "Lil Debbie",
+      "email": "lil@debbie.com",
+      "total_points": 300,
+    },
+    "img_url": "http://i.imgur.com/uyQQK2A.png",
+    "answer": "sugar",
+    "hint": ""
   }
 ]
     
@@ -275,27 +275,27 @@ Code | Type | Description
 [
   {
   	"id": 1,
-		"owner": {
-	  	"username": "testusername",
-	    "full_name": "John Doe",
-			"email": "test@email.com",
-			"total_points": 150,
-		},
-		"img_url": "http://i.imgur.com/zCpxKJQ.png",
-		"answer": "potato",
-		"hint": "food"
-  }
+    "owner": {
+      "username": "testusername",
+      "full_name": "John Doe",
+      "email": "test@email.com",
+      "total_points": 150,
+    },
+    "img_url": "http://i.imgur.com/zCpxKJQ.png",
+    "answer": "potato",
+    "hint": "food"
+  },
   {
   	"id": 2,
-		"owner": {
-	  	"username": "zebracakes",
-	  	"full_name": "Lil Debbie",
-	  	"email": "lil@debbie.com",
-	  	"total_points": 300,
-		},
-		"img_url": "http://i.imgur.com/uyQQK2A.png",
-		"answer": "snow",
-		"hint": "food"
+    "owner": {
+      "username": "zebracakes",
+	  "full_name": "Lil Debbie",
+      "email": "lil@debbie.com",
+      "total_points": 300,
+    },
+    "img_url": "http://i.imgur.com/uyQQK2A.png",
+    "answer": "snow",
+    "hint": "food"
   }
 ]
 ```
@@ -322,14 +322,14 @@ Code | Type | Description
 {
   "id": 1,
   "owner": {
-		"username": "zebracakes",
-		"full_name": "Lil Debbie",
-		"email": "lil@debbie.com",
-		"total_points": 300,
+    "username": "zebracakes",
+    "full_name": "Lil Debbie",
+    "email": "lil@debbie.com",
+    "total_points": 300,
   },
-	"img_url": "http://i.imgur.com/zCpxKJQ.png",
-	"answer": "potato",
-	"hint": "food"
+  "img_url": "http://i.imgur.com/zCpxKJQ.png",
+  "answer": "potato",
+  "hint": "food"
 }
 ```
 
@@ -356,27 +356,27 @@ Code | Type | Description
 [
   {
   	"id": 1,
-		"owner": {
-	  	"username": "zebracakes",
-	  	"full_name": "Lil Debbie",
-	  	"email": "lil@debbie.com",
+    "owner": {
+      "username": "zebracakes",
+      "full_name": "Lil Debbie",
+      "email": "lil@debbie.com",
 	  	"total_points": 300,
-		},
-		"img_url": "http://i.imgur.com/zCpxKJQ.png",
-		"answer": "potato",
-		"hint": "food"
-  }
+	},
+	"img_url": "http://i.imgur.com/zCpxKJQ.png",
+	"answer": "potato",
+	"hint": "food"
+  },
   {
   	"id": 2,
-		"owner": {
-	  	"username": "zebracakes",
-	  	"full_name": "Lil Debbie",
-	  	"email": "lil@debbie.com",
-	  	"total_points": 300,
-		},
-		"img_url": "http://i.imgur.com/uyQQK2A.png",
-		"answer": "snow",
-		"hint": "cold"
+	"owner": {
+	  "username": "zebracakes",
+	  "full_name": "Lil Debbie",
+	  "email": "lil@debbie.com",
+	  "total_points": 300,
+	},
+	"img_url": "http://i.imgur.com/uyQQK2A.png",
+	"answer": "snow",
+	"hint": "cold"
   }
 ]
 ```
@@ -417,10 +417,10 @@ Code | Type | Description
 {
   "id": 1,
   "owner": {
-		"username": "zebracakes",
-		"full_name": "Lil Debbie",
-		"email": "lil@debbie.com",
-		"total_points": 300,
+	"username": "zebracakes",
+	"full_name": "Lil Debbie",
+	"email": "lil@debbie.com",
+	"total_points": 300,
   },
   "img_url": "http://i.imgur.com/uyQQK2A.png",
   "answer": "snow",
@@ -476,29 +476,29 @@ Code | Type | Description
 ```
 [
   {
-		"id": 1,
-		"owner": {
-	  	"username": "testusername",
-	  	"full_name": "John Doe",
-	  	"email": "test@email.com",
-	  	"total_points": 150,
-		},
-		"post_id": 1,
-		"guess": "foobar",
-		"points": 0
+	"id": 1,
+	"owner": {
+	  "username": "testusername",
+	  "full_name": "John Doe",
+	  "email": "test@email.com",
+	  "total_points": 150,
+	},
+	"post_id": 1,
+	"guess": "foobar",
+	"points": 0
   },
   {
-		"id": 2,
-		"owner": {
-	  	"username": "zebracakes",
-	  	"full_name": "Lil Debbie",
-	  	"email": "lil@debbie.com",
-	  	"total_points": 300,
-		},
-		"post_id": 1,
-		"guess": "kitty",
-		"points": 80,
-		"potential_points": 90
+	"id": 2,
+	"owner": {
+      "username": "zebracakes",
+      "full_name": "Lil Debbie",
+	  "email": "lil@debbie.com",
+	  "total_points": 300,
+	},
+	"post_id": 1,
+	"guess": "kitty",
+	"points": 80,
+	"potential_points": 90
   }
 ]
 ```
@@ -526,27 +526,27 @@ Code | Type | Description
 [
   {
   	"id": 1,
-		"owner": {
-	  	"username": "testusername",
-	  	"full_name": "John Doe",
-	  	"email": "test@email.com",
-	  	"total_points": 150,
-		},
-		"post_id": 1,
-		"guess": "foobar",
-		"points": 0,
-		"potential_points": 90
+	"owner": {
+	  "username": "testusername",
+	  "full_name": "John Doe",
+	  "email": "test@email.com",
+	  "total_points": 150,
+	},
+	"post_id": 1,
+	"guess": "foobar",
+	"points": 0,
+	"potential_points": 90
   },
   {
   	"id": 2,
-		"owner": {
-	  	"username": "testusername",
-	  	"full_name": "John Doe",
-	  	"email": "test@email.com",
-	  	"total_points": 150,
-		},
-		"post_id": 1,
-		"guess": "kitty",
+	"owner": {
+	  "username": "testusername",
+	  "full_name": "John Doe",
+	  "email": "test@email.com",
+	  "total_points": 150,
+	},
+	"post_id": 1,
+	"guess": "kitty",
   	"points": 80,
   	"potential_points": 90
   }
@@ -584,10 +584,10 @@ Code | Type | Description
 {
   "id": 1,
   "owner": {
-		"username": "testusername",
-		"full_name": "John Doe",
-		"email": "test@email.com",
-		"total_points": 150,
+	"username": "testusername",
+	"full_name": "John Doe",
+	"email": "test@email.com",
+	"total_points": 150,
   },
   "post_id": 1,
   "guess": "foobar",
