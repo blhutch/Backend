@@ -52,6 +52,16 @@ class UsersController < ApplicationController
     #   }
   end
 
+  def show
+    @user = User.find_by(username: params[:username])
+    if @user
+      render json: { user: @user.as_json(only: [:id, :username, 
+                    :full_name, :email, :total_points])}, status: :ok
+    else
+      render json: { error: @user.errors.full_messages }, status: :bad_request
+    end
+  end
+
   #def update
     # if we decide this is needed to update a player profile, I will put it in.
   #end
