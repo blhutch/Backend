@@ -5,7 +5,7 @@ class GuessesController < ApplicationController
 		@post = Post.find(params[:post_id])
 		@guesses = @post.guesses.page(params[:page]).per(params[:per]).to_a
 		if @guesses 
-			render :index
+			render 'index.json.jbuilder', status: :ok
 		else
 			render json: { errors: post.errors.full_messages }, status: :bad_request
 		end	
@@ -16,7 +16,7 @@ class GuessesController < ApplicationController
 		@user = User.find_by(username: params[:username])
 		@guesses = Guess.where("user_id = ? AND post_id = ?", @user.id, @post.id).to_a
 		if @guesses
-			render :user
+			render 'user.json.jbuilder', status: :ok
 		else
 			render json: { errors: @guesses.errors.full_messages }, status: :bad_request
 		end
