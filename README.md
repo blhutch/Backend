@@ -10,6 +10,7 @@ Website: dcryptr.herokuapp.com
 	* [Sign In](#sign-in)
 	* [Delete](#delete)
 	* [Index](#index)
+  * [Show User](#show-user)
 3. [Post Model](#post-model)
 	* [Posts Index](#posts-index)
 	* [Incomplete Posts for a User](#incomplete-posts-for-a-user)
@@ -141,7 +142,6 @@ Code | Type | Description
 #### ***INDEX***
 **Pagination Enabled **
 
-
 * **Path**
 ```
 GET 'users'
@@ -188,6 +188,34 @@ Code | Type | Description
 200 | Success | Request was received and delivered successfully.
 400 | Error | Bad Request. Specified parameters do not match.
 
+### Show User
+Shows the information for an individual user.
+
+Path: 
+`GET '/user/:username'`
+
+**Paremeters**
+*None*
+
+**Status Codes**
+
+Code | Type | Description
+---|---|---
+200 | Success | All posts were successfully returned.
+400 | Error | Bad Request. Specified parameters do not match.
+
+**Example Response**
+```
+{
+  "user": {
+    "id": 1,
+    "username": "testname",
+    "full_name": "Test Name",
+    "email": "test@name.com",
+    "total_points": 70
+  }
+}
+```
 
 ## **Post Model**
 

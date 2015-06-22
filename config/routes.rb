@@ -18,7 +18,7 @@
   # User
   post 'users/signup',  to: 'users#user_signup'
   post 'users/signin',  to: 'users#user_signin'
-  get 'user/:username', to:  'users#index'
+  get 'user/:username', to:  'users#show'
   put 'user/:username', to:  'users#update'
   delete 'user/:username/delete', to: 'users#delete'
   get 'users', to: 'users#index'
