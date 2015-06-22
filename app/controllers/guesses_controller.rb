@@ -3,7 +3,7 @@ class GuessesController < ApplicationController
 
 	def index
 		@post = Post.find(params[:post_id])
-		@guesses = @post.guesses.page(params[:page]).per(25).to_a
+		@guesses = @post.guesses.page(params[:page]).per(params[:per]).to_a
 		if @guesses 
 			render :index
 		else
