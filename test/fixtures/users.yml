@@ -1,19 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  username: 
-  full_name: 
-  email: 
-  password: 
-  posts: 
-  guesses: 
-  total_points: 1
+david:
+  username: 'david'
+  full_name: 'King David'
+  email: 'david@kickass.com'
+  password: 'stone'
+  access_token: '1A345ER432'
+  total_points: 100
 
-two:
-  username: 
-  full_name: 
-  email: 
-  password: 
-  posts: 
-  guesses: 
-  total_points: 1
+goliath:
+  username: 'goliath'
+  full_name: 'Goliath of Gath'
+  email: 'goliath@owned.com'
+  password: 'sling'
+  access_token: '2E345Tr67DT'
+  total_points: 100

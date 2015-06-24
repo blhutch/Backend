@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 1
-  post_id: 1
-  guess: MyString
-  points: 1
+david_guess:
+  user: david
+  post: david_post
+  guess: 'ugly'
+  points: 90
+  potential_points: 100
 
-two:
-  user_id: 1
-  post_id: 1
-  guess: MyString
-  points: 1
+goliath_guess:
+  user: goliath
+  post: goliath_post
+  guess: 'stone'
+  points: 90
+  potential_points: 100
