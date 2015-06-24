@@ -140,7 +140,7 @@ Code | Type | Description
 
 
 #### ***INDEX***
-**Pagination Enabled **
+**Pagination Enabled:**
 
 * **Path**
 ```
@@ -220,7 +220,7 @@ Code | Type | Description
 ## **Post Model**
 
 #### Posts Index
-**Pagination Enabled: **
+**Pagination Enabled:**
 List of all posts in the database.
 
 Path: 
@@ -281,7 +281,7 @@ Code | Type | Description
 
 #### Incomplete Posts for a User
 
-**Pagination Enabled: **
+**Pagination Enabled:**
 Lists the posts that a specific has not completed.
 
 Path: 
@@ -363,7 +363,7 @@ Code | Type | Description
 
 #### Show a User's Posts
 
-**Pagination Enabled: **
+**Pagination Enabled:**
 Shows all posts created by a specified user.
 
 Path: 
@@ -484,7 +484,7 @@ Only 204 Code is returned.
 
 #### Show All Guesses of a Particular Post
 
-**Pagination Enabled: **
+**Pagination Enabled:**
 Lists all the guesses in a specified post from all users.
 
 Path: 
@@ -533,7 +533,7 @@ Code | Type | Description
 
 #### Show guesses for a user in a particular post
 
-**Pagination Enabled: **
+**Pagination Enabled:**
 Lists all the guesses for a particular user in a specified post.
 
 Path:
