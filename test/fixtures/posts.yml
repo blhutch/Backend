@@ -4,10 +4,8 @@ one:
   user_id: 1
   img_url: MyString
   answer: MyString
-  solution: 1
 
 two:
   user_id: 1
   img_url: MyString
   answer: MyString
-  solution: 1
